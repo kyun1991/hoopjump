@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
+    //Declare public variables
     public GameObject testtt;
-
+    public Transform Arrow;
     public float ballForce;
-
     public bool freeBall;
 
+    //Declare Private variables
     private Vector2 newDir;
 
     private Rigidbody2D rb;
@@ -42,6 +43,11 @@ public class Ball : MonoBehaviour {
     {
         Vector2 dir = transform.position - collision.transform.position;
         newDir = Vector2.Perpendicular(dir);
+        //Reference vector, that points up
+        Vector2 orig = new Vector2(0,1);
+        var m_Angle = Vector2.SignedAngle(orig, newDir); //Calculate the angle between reference vector and ball newDir vector
+        Arrow.eulerAngles = new Vector3(0,0,m_Angle);
+        Arrow.position = transform.position;
 
         if (freeBall == true)
         {

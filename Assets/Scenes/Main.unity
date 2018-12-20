@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &105381671
 Transform:
   m_ObjectHideFlags: 0
@@ -582,6 +582,56 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!1001 &914554348
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1290368671863702, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4297720350645400, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.35
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4411c253d2e15494da5a6baa05b4ba6b, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1302266891
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +807,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.690607, y: 10.069046}
   m_EdgeRadius: 0
+--- !u!4 &1597543392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4423680559190530, guid: 4411c253d2e15494da5a6baa05b4ba6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 914554348}
 --- !u!1 &1609884765
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +827,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1609884766
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,6 +1070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testtt: {fileID: 1632442423}
+  Arrow: {fileID: 1597543392}
   ballForce: 300
   freeBall: 0
 --- !u!50 &2140964572
