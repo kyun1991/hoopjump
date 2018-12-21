@@ -29,7 +29,6 @@ public class Ball : MonoBehaviour {
 
         Vector2 orig = new Vector2(0, 1);
         var m_Angle = Vector2.SignedAngle(orig, newDir);
-
         Arrow.transform.rotation = Quaternion.Euler(0, 0, m_Angle);
     }
 
