@@ -12,7 +12,6 @@ public class Ball : MonoBehaviour {
     public bool freeBall;
     public bool flying;
 
-
     //Declare Private variables
     private Vector2 newDir;
     private Rigidbody2D rb;
@@ -31,18 +30,7 @@ public class Ball : MonoBehaviour {
         Vector2 orig = new Vector2(0, 1);
         var m_Angle = Vector2.SignedAngle(orig, newDir);
 
-        if (clockwise == false)
-        {
-            Arrow.transform.rotation = Quaternion.Euler(0, 0, m_Angle);
-        }
-        if (clockwise == true)
-        {
-            Arrow.transform.rotation = Quaternion.Euler(0, 0, m_Angle+180);
-        }
-
-        
-    
-        Debug.Log(clockwise);
+        Arrow.transform.rotation = Quaternion.Euler(0, 0, m_Angle);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,7 +62,7 @@ public class Ball : MonoBehaviour {
             transform.SetParent(null);
             rb.isKinematic = false;
             rb.AddForce(newDir* ballForce);
-            //ArrowGO.SetActive(false);
+            ArrowGO.SetActive(false);
         }
     }
 }
