@@ -4,10 +4,36 @@ using UnityEngine;
 
 public class Circles : MonoBehaviour {
 
-    private float spinSpeed=100;
+    private int spin=0;
+    private float spinSpeed=150;
+    
+
+    private void Start()
+    {
+        spin=Random.Range(0, 2);        
+    }
 
     private void Update()
     {
-        transform.Rotate(0, 0, spinSpeed*Time.deltaTime);
+        if (spin == 0)
+        {
+            transform.Rotate(0, 0, spinSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.Rotate(0, 0, -spinSpeed * Time.deltaTime);
+        }
+    }
+
+    public bool SpinDirection()
+    {
+        if (spin == 0)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

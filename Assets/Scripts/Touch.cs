@@ -9,6 +9,9 @@ public class Touch : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Ball.freeBall = true;
+        if (Ball.flying == false)
+        {
+            Ball.freeBall = true;
+        }
     }
 }
