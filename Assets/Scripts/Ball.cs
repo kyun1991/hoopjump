@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour {
     public bool flying;
 
     //Declare Private variables
+    private GameObject CurrentCircle;
     private Vector2 newDir;
     private Rigidbody2D rb;
     private bool clockwise;
@@ -36,6 +37,8 @@ public class Ball : MonoBehaviour {
     {
         if (collision.tag == "circle")
         {
+            //Need to declare current circle for reference in CameraScript
+            CurrentCircle = collision.gameObject;
             flying = false;
             rb.velocity = new Vector3(0, 0, 0);
             rb.isKinematic = true;
@@ -63,5 +66,12 @@ public class Ball : MonoBehaviour {
             rb.AddForce(newDir* ballForce);
             ArrowGO.SetActive(false);
         }
+    }
+
+
+    //Called from the CameraScript Class
+    public GameObject GetCurrentCircle()
+    {
+        return CurrentCircle;
     }
 }
