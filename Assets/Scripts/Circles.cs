@@ -14,8 +14,7 @@ public class Circles : MonoBehaviour {
     private void Start()
     {
         spin=Random.Range(0, 2);
-        tr = GetComponentInChildren<TrailRenderer>();
-        Debug.Log(tr.name);
+        tr = GetComponentInChildren<TrailRenderer>();        
     }
 
     private void Update()
