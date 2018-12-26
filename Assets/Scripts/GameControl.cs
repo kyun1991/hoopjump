@@ -8,6 +8,11 @@ public class GameControl : MonoBehaviour
 
     public static GameControl instance;
 
+    public int ringNumber;
+    public GameObject[] rings;
+
+    private List<GameObject> ringList = new List<GameObject>();
+
     private void Awake()
     {
         if (instance == null)
@@ -17,6 +22,14 @@ public class GameControl : MonoBehaviour
         if (instance != this)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < ringNumber; i++)
+        {
+            ringList.Add(Instantiate(rings[Random.Range(0,rings.Length)],new Vector3(i*4,0,0),Quaternion.identity));
         }
     }
 
