@@ -536,11 +536,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512846809f3cadc47a9647d4fbd31ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringNumber: 5
+  ringNumber: 10
   rings:
-  - {fileID: 1146981893749160, guid: 65ec976fc3f76d84db9ecad4913b8612, type: 2}
-  - {fileID: 1482626311348004, guid: 741977a1e72c99341925c89f6c37c457, type: 2}
   - {fileID: 1881262018951500, guid: 32079d3577db8d74797002404c022f2b, type: 2}
+  - {fileID: 1482626311348004, guid: 741977a1e72c99341925c89f6c37c457, type: 2}
+  - {fileID: 1146981893749160, guid: 65ec976fc3f76d84db9ecad4913b8612, type: 2}
+  smallsmall: 5
+  smallmedium: 5
+  smalllarge: 5
+  mediumsmall: 5
+  mediummedium: 5
+  mediumlarge: 5
+  largesmall: 5
+  largemedium: 5
+  largelarge: 5
 --- !u!1 &1530473649
 GameObject:
   m_ObjectHideFlags: 0

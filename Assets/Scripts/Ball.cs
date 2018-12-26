@@ -39,7 +39,7 @@ public class Ball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "ring")
+        if (collision.tag.Contains("ring"))
         {
             //Need to declare current circle for reference in CameraScript
             CurrentCircle = collision.gameObject;
