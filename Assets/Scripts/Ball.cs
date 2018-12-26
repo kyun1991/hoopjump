@@ -49,7 +49,6 @@ public class Ball : MonoBehaviour
             transform.SetParent(collision.transform);
             ArrowGO.SetActive(true);
             clockwise = collision.GetComponent<Circles>().SpinDirection();
-            collision.GetComponent<Circles>().StartAngleCalculation();
         }
     }
 
