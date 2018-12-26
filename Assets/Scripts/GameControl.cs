@@ -49,15 +49,15 @@ public class GameControl : MonoBehaviour
             {
                 if(ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position =ringList[i].transform.position + new Vector3(smallsmall, 0, 0);                    
+                    ringList[i + 1].transform.position =ringList[i].transform.position + new Vector3(smallsmall, Random.Range(-1f,1f), 0);                    
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smallmedium, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smallmedium, Random.Range(-1f, 1f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringlarge") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smalllarge, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smalllarge, Random.Range(-1f, 1f), 0);
                 }
 
             }
@@ -65,30 +65,30 @@ public class GameControl : MonoBehaviour
             {
                 if (ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediumsmall, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediumsmall, Random.Range(-1f, 1f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediummedium, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediummedium, Random.Range(-1f, 1f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringlarge") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediumlarge, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediumlarge, Random.Range(-1f, 1f), 0);
                 }
             }
             else if (ringList[i].tag == "ringlarge")
             {
                 if (ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largesmall, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largesmall, Random.Range(-1f, 1f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largemedium, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largemedium, Random.Range(-1f, 1f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringlarge") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largelarge, 0, 0);
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largelarge, Random.Range(-1f, 1f), 0);
                 }
             }
         }

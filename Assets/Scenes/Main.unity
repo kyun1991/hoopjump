@@ -288,7 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ball: {fileID: 2140964567}
   XOffset: 1
-  AdjustSpeed: 2
+  AdjustSpeed: 5
 --- !u!1 &816267525
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033841447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -7, z: 0}
+  m_LocalPosition: {x: 0, y: -6.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -536,20 +536,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512846809f3cadc47a9647d4fbd31ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ringNumber: 10
+  ringNumber: 30
   rings:
   - {fileID: 1881262018951500, guid: 32079d3577db8d74797002404c022f2b, type: 2}
   - {fileID: 1482626311348004, guid: 741977a1e72c99341925c89f6c37c457, type: 2}
   - {fileID: 1146981893749160, guid: 65ec976fc3f76d84db9ecad4913b8612, type: 2}
-  smallsmall: 5
-  smallmedium: 5
-  smalllarge: 5
-  mediumsmall: 5
-  mediummedium: 5
-  mediumlarge: 5
-  largesmall: 5
-  largemedium: 5
-  largelarge: 5
+  smallsmall: 3
+  smallmedium: 3
+  smalllarge: 4
+  mediumsmall: 3.5
+  mediummedium: 3
+  mediumlarge: 4
+  largesmall: 3
+  largemedium: 4
+  largelarge: 4.5
 --- !u!1 &1530473649
 GameObject:
   m_ObjectHideFlags: 0
