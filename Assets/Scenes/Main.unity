@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 2140964567}
-  XOffset: 1
+  XOffset: 1.5
   AdjustSpeed: 5
 --- !u!1 &816267525
 GameObject:
@@ -536,6 +536,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512846809f3cadc47a9647d4fbd31ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AdjustPerfectClkwise: 15
+  AdjustPerfectAntiClkwise: 15
   ringNumber: 30
   rings:
   - {fileID: 1881262018951500, guid: 32079d3577db8d74797002404c022f2b, type: 2}

@@ -111,7 +111,7 @@ public class GameControl : MonoBehaviour
                 }
             }
             //Calculate the perfect angle
-            ringList[i].GetComponent<Circles>().CalculatePerfectAngle(ringList[i+1].transform.position);
+            ringList[i].GetComponent<Circles>().AddNextCircle(ringList[i + 1]);
         }
     }
 }
