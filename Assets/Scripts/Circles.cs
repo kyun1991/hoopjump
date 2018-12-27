@@ -5,6 +5,7 @@ using UnityEngine;
 public class Circles : MonoBehaviour {
     //Declare public variables
     public GameObject Perfect;
+    public float AdjustAngle = 30f;
 
     //Declare private variables
     private int spin = 0;
@@ -46,6 +47,8 @@ public class Circles : MonoBehaviour {
     public void CalculatePerfectAngle(Vector3 pos2)
     {
         var pos1 = transform.position;
+        float newYPos = pos2.y - pos1.y;
+        
         var hypotenuse = Mathf.Sqrt(Mathf.Pow(pos2.x - pos1.x, 2) + Mathf.Pow(pos2.y - pos1.y, 2));
         cc = GetComponent<CircleCollider2D>();
         var radius = cc.radius;
@@ -54,6 +57,7 @@ public class Circles : MonoBehaviour {
         if (spin == 1)//If clockwise angle is different
         {
             theta = 2 * Mathf.PI - theta;
+            theta -= AdjustAngle * Mathf.PI/180;
         }
         var upVector = new Vector2(0, 1); //Reference vector
         var diffVector = pos2 - pos1;
