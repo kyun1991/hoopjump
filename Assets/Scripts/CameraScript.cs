@@ -29,7 +29,7 @@ public class CameraScript : MonoBehaviour {
         {
             //Need to store the current circle that the ball is sitting on, and adjust the camera if its not on that position
             var circlePos = BallScript.GetCurrentCircle().GetComponent<Transform>().position;
-            var target = new Vector3(circlePos.x + XOffset, transform.position.y, transform.position.z);
+            var target = new Vector3(circlePos.x + XOffset, circlePos.y, transform.position.z);
             var step = AdjustSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, target, step);
         }

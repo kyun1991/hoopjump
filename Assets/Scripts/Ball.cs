@@ -61,18 +61,18 @@ public class Ball : MonoBehaviour
 
             if (angle <= Boundary2 && angle >= Boundary1)
             {
+                //Only if the ball is within the pefect zone
                 if (!within)
                 {
                     EnterPerfectZone();
-                    within = true;
                 }
             }
             else
             {
+                //If the ball is outside the perfect zone
                 if (within)
                 {
                     LeavePerfectZone();
-                    within = false;
                 }
             }
         }
@@ -125,6 +125,7 @@ public class Ball : MonoBehaviour
         //TODO: enter perfect zone logic
         Debug.Log("Enter Perfect Zone");
         ArrowAnimator.SetTrigger("Enlarge");
+        within = true;
     }
 
     private void LeavePerfectZone()
@@ -132,6 +133,7 @@ public class Ball : MonoBehaviour
         //TODO: leave perfect zone logic
         Debug.Log("Leave Perfect Zone");
         ArrowAnimator.SetTrigger("Decrease");
+        within = false;
     }
 
     public void FreeBall()
