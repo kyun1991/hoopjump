@@ -137,6 +137,15 @@ public class Ball : MonoBehaviour
     public void FreeBall()
     {
         freeBall = true;
-        LeavePerfectZone();
+        if (within)
+        {
+            JumpWithinPerfect();
+            LeavePerfectZone();
+        }
+    }
+
+    public void JumpWithinPerfect()
+    {
+        Debug.Log("Perfect!!");
     }
 }
