@@ -22,6 +22,7 @@ public class GameControl : MonoBehaviour
     public float largesmall;
     public float largemedium;
     public float largelarge;
+    public GameObject Counter;
 
     private List<GameObject> ringList = new List<GameObject>();
 
@@ -46,6 +47,12 @@ public class GameControl : MonoBehaviour
         }
         // arranges rings by x offset depending on ring size
         AddOffset();
+
+        //Create a counter object for each circle
+        for (int i = 1; i < ringNumber; i++)
+        {
+            Instantiate(Counter, ringList[i].transform.position - new Vector3(0.5f, 0, 0), Quaternion.identity);
+        }
     }
 
     public void Dead()

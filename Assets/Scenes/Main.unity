@@ -552,6 +552,7 @@ MonoBehaviour:
   largesmall: 2
   largemedium: 2
   largelarge: 2
+  Counter: {fileID: 1247881545280028, guid: 228bc79c3639e774ab58b3f1cd911ddf, type: 2}
 --- !u!1 &1530473649
 GameObject:
   m_ObjectHideFlags: 0

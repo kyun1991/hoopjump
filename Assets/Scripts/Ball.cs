@@ -22,6 +22,7 @@ public class Ball : MonoBehaviour
     private Rigidbody2D rb;
     private bool clockwise;
     private bool within = false;
+    private int passedCount = 0;
 
     // Use this for initialization
     void Start()
@@ -82,6 +83,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag.Contains("ring"))
         {
+            passedCount = 0; //Reset passed count
             //Need to declare current circle for reference in CameraScript
             CurrentCircle = collision.gameObject;
             flying = false;
@@ -90,6 +92,14 @@ public class Ball : MonoBehaviour
             transform.SetParent(collision.transform);
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
+        }
+
+        //Detect how many circles that the ball flew over
+        if(collision.tag == "counter")
+        {
+            passedCount += 1;
+            FlyOver();
+            Destroy(collision.gameObject);
         }
     }
 
@@ -149,5 +159,10 @@ public class Ball : MonoBehaviour
     public void JumpWithinPerfect()
     {
         Debug.Log("Perfect!!");
+    }
+
+    private void FlyOver()
+    {
+        Debug.Log("Flew over: " + passedCount + " circles");
     }
 }

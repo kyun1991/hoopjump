@@ -8,6 +8,7 @@ TagManager:
   - ringsmall
   - ringmedium
   - ringlarge
+  - counter
   layers:
   - Default
   - TransparentFX
