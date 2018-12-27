@@ -11,7 +11,7 @@ public class Touch : MonoBehaviour, IPointerClickHandler
     {
         if (Ball.flying == false)
         {
-            Ball.freeBall = true;
+            Ball.FreeBall();
         }
     }
 }

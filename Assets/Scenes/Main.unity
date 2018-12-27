@@ -625,6 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2118667083}
+  - component: {fileID: 2118667084}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -646,6 +647,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2118667084
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2118667082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 849ad43cd1e852a4280b711f6197834e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2140964567
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,9 +771,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ArrowGO: {fileID: 2118667082}
   Arrow: {fileID: 2118667083}
-  ballForce: 500
+  ballForce: 800
   freeBall: 0
   flying: 0
+  PerfectBoundary: 30
 --- !u!50 &2140964572
 Rigidbody2D:
   serializedVersion: 4

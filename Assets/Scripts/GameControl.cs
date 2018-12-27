@@ -41,15 +41,31 @@ public class GameControl : MonoBehaviour
         {
             ringList.Add(Instantiate(rings[Random.Range(0,rings.Length)],new Vector3(0,0,0),Quaternion.identity));
         }
-
         // arranges rings by x offset depending on ring size
-        for (int i = 0; i < ringNumber-1; i++)
+        AddOffset();
+    }
+
+    public void Dead()
+    {
+        StartCoroutine(Delay(1f));
+    }
+
+    IEnumerator Delay(float time)
+    {
+        yield return new WaitForSeconds(time);
+        SceneManager.LoadScene(0);
+    }
+
+    private void AddOffset()
+    {
+        // arranges rings by x offset depending on ring size
+        for (int i = 0; i < ringNumber - 1; i++)
         {
             if (ringList[i].tag == "ringsmall") // current ring size
             {
-                if(ringList[i + 1].tag == "ringsmall") // next ring size
+                if (ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position =ringList[i].transform.position + new Vector3(smallsmall, Random.Range(-1f,1f), 0);                    
+                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smallsmall, Random.Range(-1f, 1f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
@@ -91,19 +107,8 @@ public class GameControl : MonoBehaviour
                     ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largelarge, Random.Range(-1f, 1f), 0);
                 }
             }
+            //Calculate the perfect angle
+            ringList[i].GetComponent<Circles>().CalculatePerfectAngle(ringList[i+1].transform.position);
         }
-
     }
-
-    public void Dead()
-    {
-        StartCoroutine(Delay(1f));
-    }
-
-    IEnumerator Delay(float time)
-    {
-        yield return new WaitForSeconds(time);
-        SceneManager.LoadScene(0);
-    }
-
 }
