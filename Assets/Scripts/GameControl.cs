@@ -68,15 +68,15 @@ public class GameControl : MonoBehaviour
             {
                 if (ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smallsmall, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x,0,0) + new Vector3(smallsmall, Random.Range(-2f, 2f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smallmedium, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(smallmedium, Random.Range(-2f, 2f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringlarge") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(smalllarge, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(smalllarge, Random.Range(-2f, 2f), 0);
                 }
 
             }
@@ -84,30 +84,30 @@ public class GameControl : MonoBehaviour
             {
                 if (ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediumsmall, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(mediumsmall, Random.Range(-2f, 2f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediummedium, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(mediummedium, Random.Range(-2f, 2f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringlarge") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(mediumlarge, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(mediumlarge, Random.Range(-2f, 2f), 0);
                 }
             }
             else if (ringList[i].tag == "ringlarge")
             {
                 if (ringList[i + 1].tag == "ringsmall") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largesmall, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(largesmall, Random.Range(-2f, 2f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringmedium") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largemedium, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(largemedium, Random.Range(-2f, 2f), 0);
                 }
                 else if (ringList[i + 1].tag == "ringlarge") // next ring size
                 {
-                    ringList[i + 1].transform.position = ringList[i].transform.position + new Vector3(largelarge, Random.Range(-1f, 1f), 0);
+                    ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(largelarge, Random.Range(-2f, 2f), 0);
                 }
             }
             //Calculate the perfect angle
