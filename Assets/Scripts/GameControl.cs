@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
-
+    //Declare public variables
     public static GameControl instance;
+    public float AdjustPerfectClkwise = 15f;
+    public float AdjustPerfectAntiClkwise = 15f;
 
+    //Declare Private Variables
     public int ringNumber;
     public GameObject[] rings;
     public float smallsmall;

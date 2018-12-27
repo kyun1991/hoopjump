@@ -5,7 +5,6 @@ using UnityEngine;
 public class Circles : MonoBehaviour {
     //Declare public variables
     public GameObject Perfect;
-    public float AdjustAngle = 30f;
 
     //Declare private variables
     private int spin = 0;
@@ -57,7 +56,11 @@ public class Circles : MonoBehaviour {
         if (spin == 1)//If clockwise angle is different
         {
             theta = 2 * Mathf.PI - theta;
-            theta -= AdjustAngle * Mathf.PI/180;
+            theta -= GameControl.instance.AdjustPerfectClkwise * Mathf.PI/180;
+        }
+        else
+        {
+            theta -= GameControl.instance.AdjustPerfectAntiClkwise * Mathf.PI / 180;
         }
         var upVector = new Vector2(0, 1); //Reference vector
         var diffVector = pos2 - pos1;
