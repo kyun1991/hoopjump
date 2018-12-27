@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: Tabstart_Data
+  m_EditorClassIdentifier: 
+  dataName: Tabstart
+  dragonBonesJSON: {fileID: 4900000, guid: 556f166f76d3d9040bf855d335e5a34f, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 1aa71738da8c45d4987f4c153626e8a5, type: 3}
+    texture: {fileID: 2800000, guid: fb69e4da2dbb9d0428c19543424d57d5, type: 3}
+    material: {fileID: 2100000, guid: f4225b533fcfb2a468657491d57c7ab3, type: 2}
+    uiMaterial: {fileID: 0}
