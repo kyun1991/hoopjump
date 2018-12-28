@@ -101,6 +101,8 @@ public class Ball : MonoBehaviour
             else
             {
                 // exponential system
+                GameControl.instance.IncrementScore();
+                passedCount = 0;
             }
         }
 
