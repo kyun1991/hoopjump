@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
@@ -1898,4 +1896,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
->>>>>>> e01eeca7ae3d45bb02634c727df2b164aeca5a55

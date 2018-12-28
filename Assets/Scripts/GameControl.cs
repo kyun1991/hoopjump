@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -150,4 +148,3 @@ public class GameControl : MonoBehaviour
         }
     }
 }
->>>>>>> e01eeca7ae3d45bb02634c727df2b164aeca5a55
