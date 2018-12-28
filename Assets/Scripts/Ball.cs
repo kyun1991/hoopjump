@@ -114,6 +114,12 @@ public class Ball : MonoBehaviour
             FlyOver();
             Destroy(collision.gameObject);
         }
+
+        if(collision.tag == "gameend")
+        {
+            Debug.Log("Level Up!");
+            GameControl.instance.LevelUp();
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

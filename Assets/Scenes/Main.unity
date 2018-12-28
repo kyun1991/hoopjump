@@ -168,7 +168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &124630553
 MonoBehaviour:
@@ -960,7 +960,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1033841449
 MonoBehaviour:
@@ -1113,7 +1113,8 @@ MonoBehaviour:
   AdjustPerfectClkwise: 15
   AdjustPerfectAntiClkwise: 15
   CircleMoveChance: 0.5
-  ringNumber: 100
+  movingRingsLevel: 0
+  ringNumber: 10
   rings:
   - {fileID: 1881262018951500, guid: 32079d3577db8d74797002404c022f2b, type: 3}
   - {fileID: 1482626311348004, guid: 741977a1e72c99341925c89f6c37c457, type: 3}
@@ -1128,7 +1129,11 @@ MonoBehaviour:
   largemedium: 2
   largelarge: 2
   Counter: {fileID: 1247881545280028, guid: 228bc79c3639e774ab58b3f1cd911ddf, type: 3}
+  FinishLine: {fileID: 6512286235262650555, guid: c586467460df8c54089858f120529a41,
+    type: 3}
+  FinishLineOffset: 7
   textCurrentscore: {fileID: 1833181063}
+  LevelController: {fileID: 2092687018}
 --- !u!1 &1530473649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1372,7 @@ RectTransform:
   - {fileID: 1957764802}
   - {fileID: 236807771}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1753,6 +1758,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957764801}
   m_CullTransparentMesh: 0
+--- !u!1 &2092687017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2092687019}
+  - component: {fileID: 2092687018}
+  m_Layer: 0
+  m_Name: LevelController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2092687018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092687017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c39ceb4c9d5c64ca90cec72988a9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Level1RingCount: 10
+  RingCountPerLevel: 2
+  RingCountCap: 30
+  MovingRingsFrom: 5
+--- !u!4 &2092687019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092687017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2096852429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1830,7 +1882,7 @@ Transform:
   m_Children:
   - {fileID: 816267526}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2118667084
 Animator:
@@ -1934,7 +1986,7 @@ Transform:
   - {fileID: 2096852430}
   - {fileID: 669167330}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &2140964570
 CircleCollider2D:

@@ -9,6 +9,7 @@ TagManager:
   - ringmedium
   - ringlarge
   - counter
+  - gameend
   layers:
   - Default
   - TransparentFX

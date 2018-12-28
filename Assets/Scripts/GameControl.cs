@@ -11,6 +11,7 @@ public class GameControl : MonoBehaviour
     public float AdjustPerfectClkwise = 15f;
     public float AdjustPerfectAntiClkwise = 15f;
     public float CircleMoveChance = 0.1f;
+    public bool movingRingsLevel = false;
 
     public int ringNumber;
     public GameObject[] rings;
@@ -24,8 +25,13 @@ public class GameControl : MonoBehaviour
     public float largemedium;
     public float largelarge;
     public GameObject Counter;
+    public GameObject FinishLine;
+    public float FinishLineOffset = 3.0f;
 
     public Text textCurrentscore;
+
+    //Declare controllers
+    public LevelControl LevelController;
 
     //Declare Private Variables
     private List<GameObject> ringList = new List<GameObject>();
@@ -44,6 +50,9 @@ public class GameControl : MonoBehaviour
 
     private void Start()
     {
+        //Declare all level related parameters - How many rings? Are the rings moving?
+        LevelController.SetLevel();
+
         // initial spawn of rings at origin
         for (int i = 0; i < ringNumber; i++)
         {
@@ -51,28 +60,35 @@ public class GameControl : MonoBehaviour
         }
         // arranges rings by x offset depending on ring size
         AddOffset();
+        //Add finishline after the last circle
+        var finishPos = ringList[ringNumber - 1].transform.position + new Vector3(FinishLineOffset,0,0);
+        Instantiate(FinishLine, finishPos, Quaternion.identity);
 
         //Create a counter object for each circle
         for (int i = 1; i < ringNumber; i++)
         {
             float offset = 0;
-            if(ringList[i].tag == "ringsmall")
+            if (ringList[i].tag == "ringsmall")
             {
                 offset = 0.3f;
-            }else if (ringList[i].tag == "ringmedium")
+            } else if (ringList[i].tag == "ringmedium")
             {
                 offset = 0.5f;
-            }else if(ringList[i].tag == "ringlarge")
+            } else if (ringList[i].tag == "ringlarge")
             {
                 offset = 0.7f;
             }
             Instantiate(Counter, ringList[i].transform.position - new Vector3(offset, 0, 0), Quaternion.identity);
 
-            //Randomly make the circles move
-            var ran = Random.Range(0, 1f);
-            if (ran <= CircleMoveChance)
+            //Check if its moving Rings level
+            if (movingRingsLevel)
             {
-                ringList[i].GetComponent<Circles>().MakeCircleMove();
+                //Randomly make the circles move
+                var ran = Random.Range(0, 1f);
+                if (ran <= CircleMoveChance)
+                {
+                    ringList[i].GetComponent<Circles>().MakeCircleMove();
+                }
             }
         }
 
@@ -162,8 +178,15 @@ public class GameControl : MonoBehaviour
                     ringList[i + 1].transform.position = new Vector3(ringList[i].transform.position.x, 0, 0) + new Vector3(largelarge, Random.Range(-2f, 2f), 0);
                 }
             }
+
             //Calculate the perfect angle
             ringList[i].GetComponent<Circles>().AddNextCircle(ringList[i + 1]);
         }
+    }
+
+    public void LevelUp()
+    {
+        LevelController.LevelUp();
+        SceneManager.LoadScene(0);
     }
 }
