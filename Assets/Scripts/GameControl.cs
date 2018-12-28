@@ -10,6 +10,7 @@ public class GameControl : MonoBehaviour
     public static GameControl instance;
     public float AdjustPerfectClkwise = 15f;
     public float AdjustPerfectAntiClkwise = 15f;
+    public float CircleMoveChance = 0.1f;
 
     public int ringNumber;
     public GameObject[] rings;
@@ -54,7 +55,25 @@ public class GameControl : MonoBehaviour
         //Create a counter object for each circle
         for (int i = 1; i < ringNumber; i++)
         {
-            Instantiate(Counter, ringList[i].transform.position - new Vector3(0.5f, 0, 0), Quaternion.identity);
+            float offset = 0;
+            if(ringList[i].tag == "ringsmall")
+            {
+                offset = 0.3f;
+            }else if (ringList[i].tag == "ringmedium")
+            {
+                offset = 0.5f;
+            }else if(ringList[i].tag == "ringlarge")
+            {
+                offset = 0.7f;
+            }
+            Instantiate(Counter, ringList[i].transform.position - new Vector3(offset, 0, 0), Quaternion.identity);
+
+            //Randomly make the circles move
+            var ran = Random.Range(0, 1f);
+            if (ran <= CircleMoveChance)
+            {
+                ringList[i].GetComponent<Circles>().MakeCircleMove();
+            }
         }
 
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();

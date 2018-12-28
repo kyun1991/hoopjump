@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Circles : MonoBehaviour {
+public class Circles : MonoBehaviour
+{
     //Declare public variables
     public GameObject Perfect;
 
@@ -13,6 +14,13 @@ public class Circles : MonoBehaviour {
     private CircleCollider2D cc;
     private GameObject NextCircle;
     private Vector3 NextCirclePrevFramePos;
+
+    //Declare variables used for move
+    public float speed = 1;
+    private bool isMove = false;
+    private bool moveUp = true;
+    private Vector3 topMovePos;
+    private Vector3 bottomMovePos;
 
     private void Awake()
     {
@@ -42,7 +50,27 @@ public class Circles : MonoBehaviour {
             }
             NextCirclePrevFramePos = NextCircle.transform.position;
         }
+        //Perfect locator also rotates with the circle without below code, we'll offset the rotation so that it stays on the same place
         Perfect.transform.Rotate(0, 0, -rotateAmount);
+
+        if (isMove)
+        {
+            var step = speed * Time.deltaTime;
+            Vector3 newPos;
+            if (moveUp)
+            {
+                newPos = topMovePos;
+            }
+            else
+            {
+                newPos = bottomMovePos;
+            }
+            transform.position = Vector3.MoveTowards(transform.position, newPos, step);
+            if(transform.position == newPos)
+            {
+                moveUp = !moveUp;
+            }
+        }
     }
 
     public bool SpinDirection()
@@ -69,7 +97,7 @@ public class Circles : MonoBehaviour {
         var pos1 = transform.position;
         var pos2 = NextCircle.transform.position;
         float newYPos = pos2.y - pos1.y;
-        
+
         var hypotenuse = Mathf.Sqrt(Mathf.Pow(pos2.x - pos1.x, 2) + Mathf.Pow(pos2.y - pos1.y, 2));
         cc = GetComponent<CircleCollider2D>();
         var radius = cc.radius;
@@ -77,7 +105,7 @@ public class Circles : MonoBehaviour {
         if (spin == 1)//If clockwise angle is different
         {
             theta = 2 * Mathf.PI - theta;
-            theta -= GameControl.instance.AdjustPerfectClkwise * Mathf.PI/180;
+            theta -= GameControl.instance.AdjustPerfectClkwise * Mathf.PI / 180;
         }
         else
         {
@@ -87,7 +115,7 @@ public class Circles : MonoBehaviour {
         var diffVector = pos2 - pos1;
         var alpha = Vector2.SignedAngle(upVector, diffVector);
         PerfectAngle = (-theta) / Mathf.PI * 180 + alpha; //Convert to degrees and add alpha
-        if(PerfectAngle <= -360)
+        if (PerfectAngle <= -360)
         {
             PerfectAngle += 360;
         }
@@ -98,5 +126,22 @@ public class Circles : MonoBehaviour {
     public float GetPerfectAngle()
     {
         return PerfectAngle;
+    }
+
+    //Called from the Gamecontrol class to indicate that this circle is going to be moving
+    public void MakeCircleMove()
+    {
+        isMove = true;
+        if (isMove)
+        {
+            var distance = Random.Range(0.5f, 1.0f);
+            topMovePos = transform.position + new Vector3(0, distance, 0);
+            bottomMovePos = transform.position - new Vector3(0, distance, 0);
+        }
+    }
+
+    public void MakeCircleStop()
+    {
+        isMove = false;
     }
 }
