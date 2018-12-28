@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameControl : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class GameControl : MonoBehaviour
     public float AdjustPerfectClkwise = 15f;
     public float AdjustPerfectAntiClkwise = 15f;
 
-    //Declare Private Variables
     public int ringNumber;
     public GameObject[] rings;
     public float smallsmall;
@@ -24,6 +24,9 @@ public class GameControl : MonoBehaviour
     public float largelarge;
     public GameObject Counter;
 
+    public Text textCurrentscore;
+
+    //Declare Private Variables
     private List<GameObject> ringList = new List<GameObject>();
 
     private void Awake()
@@ -53,10 +56,13 @@ public class GameControl : MonoBehaviour
         {
             Instantiate(Counter, ringList[i].transform.position - new Vector3(0.5f, 0, 0), Quaternion.identity);
         }
+
+        textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
     }
 
     public void Dead()
     {
+        PlayerPrefs.SetInt("score", 0);
         StartCoroutine(Delay(1f));
     }
 
@@ -64,6 +70,26 @@ public class GameControl : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         SceneManager.LoadScene(0);
+    }
+
+    // increments level by 1 when stage clear
+    public void LevelClear()
+    {
+        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level", 1) + 1);
+        StartCoroutine(Delay(1f));
+    }
+
+    public void IncrementScore()
+    {
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
+        textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+    }
+
+    public void ExponentialScore(int passedcount)
+    {
+        // exponential algooorithm coem up with here.
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
+        textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
     }
 
     private void AddOffset()

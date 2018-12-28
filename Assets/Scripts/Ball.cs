@@ -83,7 +83,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag.Contains("ring"))
         {
-            passedCount = 0; //Reset passed count
+          //  passedCount = 0; //Reset passed count
             //Need to declare current circle for reference in CameraScript
             CurrentCircle = collision.gameObject;
             flying = false;
@@ -92,6 +92,16 @@ public class Ball : MonoBehaviour
             transform.SetParent(collision.transform);
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
+
+            if (passedCount == 1)
+            {
+                GameControl.instance.IncrementScore();
+                passedCount = 0;
+            }
+            else
+            {
+                // exponential system
+            }
         }
 
         //Detect how many circles that the ball flew over
@@ -133,7 +143,7 @@ public class Ball : MonoBehaviour
     private void EnterPerfectZone()
     {
         //TODO: enter perfect zone logic
-        Debug.Log("Enter Perfect Zone");
+       // Debug.Log("Enter Perfect Zone");
         ArrowAnimator.SetTrigger("Enlarge");
         within = true;
     }
@@ -141,7 +151,7 @@ public class Ball : MonoBehaviour
     private void LeavePerfectZone()
     {
         //TODO: leave perfect zone logic
-        Debug.Log("Leave Perfect Zone");
+        //Debug.Log("Leave Perfect Zone");
         ArrowAnimator.SetTrigger("Decrease");
         within = false;
     }
