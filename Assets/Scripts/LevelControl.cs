@@ -10,34 +10,35 @@ public class LevelControl : MonoBehaviour
     public int RingCountCap = 30; //We don't want too many rings in a level
     public int MovingRingsFrom = 5; //Moving rings appear from level 5 onwards (default)
 
-    //Declare Private variables
-    private int Level;
-
     // Start is called before the first frame update
     void Awake()
     {
-        Level = PlayerPrefs.GetInt("Level", 1);
-        Debug.Log("Current level is: " + Level);
+        Debug.Log("Current level is: " + GetLevel());
+    }
+
+    public int GetLevel()
+    {
+        return PlayerPrefs.GetInt("Level", 1);
     }
 
     //Called from GameController class
     public void LevelUp()
     {
-        var currentLevel = PlayerPrefs.GetInt("Level", 1);
+        var currentLevel = GetLevel();
         PlayerPrefs.SetInt("Level", currentLevel + 1);
     }
 
     //Called from GameControl class - this must be called at the beginning of the Start function
     public void SetLevel()
     {
-        var ringCount = Level1RingCount + Level * RingCountPerLevel;
+        var ringCount = Level1RingCount + GetLevel() * RingCountPerLevel;
         //If calculated ringcount value is greater than ringcount cap, then set the value equal to cap
         if(ringCount > RingCountCap)
         {
             ringCount = RingCountCap;
         }
         GameControl.instance.ringNumber = ringCount;
-        if (Level >= MovingRingsFrom)
+        if (GetLevel() >= MovingRingsFrom)
         {
             GameControl.instance.movingRingsLevel = true; //Indicate whether this level should have moving rings in it
             //TODO: Maybe we want to set chance for each ring to move, but for now its default is 0.5 from gamecontroller

@@ -118,7 +118,7 @@ public class Ball : MonoBehaviour
         if(collision.tag == "gameend")
         {
             Debug.Log("Level Up!");
-            GameControl.instance.LevelUp();
+            GameControl.instance.LevelClear();
         }
     }
 

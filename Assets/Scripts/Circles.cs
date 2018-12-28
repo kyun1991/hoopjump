@@ -140,6 +140,7 @@ public class Circles : MonoBehaviour
         }
     }
 
+    //Called when the ball lands on this circle, stop moving the circle because it looks very messy
     public void MakeCircleStop()
     {
         isMove = false;

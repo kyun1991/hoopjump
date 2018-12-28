@@ -10,6 +10,8 @@ TagManager:
   - ringlarge
   - counter
   - gameend
+  - endblock
+  - heartblock
   layers:
   - Default
   - TransparentFX

@@ -110,10 +110,11 @@ public class GameControl : MonoBehaviour
     // increments level by 1 when stage clear
     public void LevelClear()
     {
-        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level", 1) + 1);
+        LevelController.LevelUp();
         StartCoroutine(Delay(1f));
     }
 
+    //Sam please retrieve the current level from Levelcontroller and increment score by its current level
     public void IncrementScore()
     {
         PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
@@ -182,11 +183,5 @@ public class GameControl : MonoBehaviour
             //Calculate the perfect angle
             ringList[i].GetComponent<Circles>().AddNextCircle(ringList[i + 1]);
         }
-    }
-
-    public void LevelUp()
-    {
-        LevelController.LevelUp();
-        SceneManager.LoadScene(0);
     }
 }
