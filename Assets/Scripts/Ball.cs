@@ -120,6 +120,19 @@ public class Ball : MonoBehaviour
             Debug.Log("Level Up!");
             GameControl.instance.LevelClear();
         }
+
+        if(collision.tag == "endblock")
+        {
+            PopEndBlock(collision.gameObject);
+        }
+
+        if(collision.tag == "heartblock")
+        {
+            foreach (Transform child in collision.gameObject.transform)
+            {
+                PopEndBlock(child.gameObject);
+            }
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -183,5 +196,13 @@ public class Ball : MonoBehaviour
     private void FlyOver()
     {
         Debug.Log("Flew over: " + passedCount + " circles");
+    }
+
+    //Called when ball hits one of the endblocks
+    private void PopEndBlock(GameObject obj)
+    {
+        Destroy(obj);
+        GameControl.instance.IncrementScore();
+        //TODO: Instantiate and Destroy popping animation/effect
     }
 }

@@ -13,8 +13,16 @@ public class GameControl : MonoBehaviour
     public float CircleMoveChance = 0.1f;
     public bool movingRingsLevel = false;
 
+    //Declare level Properties/assets
     public int ringNumber;
     public GameObject[] rings;
+    public GameObject Counter;
+    public GameObject FinishLine;
+    public GameObject[] Minigames;
+    public float FinishLineOffset = 3.0f;
+    public Text textCurrentscore;
+
+    //Declare Offset Parameters
     public float smallsmall;
     public float smallmedium;
     public float smalllarge;
@@ -24,11 +32,6 @@ public class GameControl : MonoBehaviour
     public float largesmall;
     public float largemedium;
     public float largelarge;
-    public GameObject Counter;
-    public GameObject FinishLine;
-    public float FinishLineOffset = 3.0f;
-
-    public Text textCurrentscore;
 
     //Declare controllers
     public LevelControl LevelController;
@@ -62,11 +65,16 @@ public class GameControl : MonoBehaviour
         AddOffset();
         //Add finishline after the last circle
         var finishPos = ringList[ringNumber - 1].transform.position + new Vector3(FinishLineOffset,0,0);
-        Instantiate(FinishLine, finishPos, Quaternion.identity);
 
-        //Create a counter object for each circle
+        //Instantiate a random minigame at the end
+        Instantiate(FinishLine, finishPos, Quaternion.identity);
+        var minigame = Minigames[Random.Range(0, Minigames.Length)];
+        Instantiate(minigame, finishPos, Quaternion.identity);
+
+
         for (int i = 1; i < ringNumber; i++)
         {
+            //Create a counter object for each circle
             float offset = 0;
             if (ringList[i].tag == "ringsmall")
             {
