@@ -6,6 +6,9 @@ public class Circles : MonoBehaviour
 {
     //Declare public variables
     public GameObject Perfect;
+    public GameObject greenlight;
+    public GameObject redlight;
+    public GameObject whitelight;
 
     //Declare private variables
     private int spin = 0;

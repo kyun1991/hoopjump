@@ -22,6 +22,7 @@ public class Ball : MonoBehaviour
     private bool clockwise;
     private bool within = false;
     private int passedCount = 0;
+    private bool safe;
 
     // Use this for initialization
     void Start()
@@ -90,6 +91,20 @@ public class Ball : MonoBehaviour
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
             CurrentCircle.GetComponent<Circles>().MakeCircleStop(); //if the circle was moving before, make it stop because it looks confusing
+           
+            if(safe && passedCount==1)
+            {
+                collision.GetComponent<Circles>().greenlight.SetActive(true);
+                safe = false;
+            }
+            else if(!safe && passedCount == 1)
+            {
+                collision.GetComponent<Circles>().whitelight.SetActive(true);
+            }
+            else
+            {
+                collision.GetComponent<Circles>().redlight.SetActive(true);
+            }
             passedCount = 0;
         }
 
@@ -178,6 +193,7 @@ public class Ball : MonoBehaviour
     public void JumpWithinPerfect()
     {
         Debug.Log("Perfect!!");
+        safe = true;
     }
 
     private void FlyOver()
