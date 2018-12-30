@@ -10,12 +10,6 @@ public class LevelControl : MonoBehaviour
     public int RingCountCap = 30; //We don't want too many rings in a level
     public int MovingRingsFrom = 5; //Moving rings appear from level 5 onwards (default)
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        Debug.Log("Current level is: " + GetLevel());
-    }
-
     public int GetLevel()
     {
         return PlayerPrefs.GetInt("Level", 1);

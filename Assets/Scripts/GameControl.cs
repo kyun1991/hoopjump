@@ -15,6 +15,7 @@ public class GameControl : MonoBehaviour
 
     //Declare level Properties/assets
     public int ringNumber;
+    public float deltaRings; // distance between first and last ring to calculate slider value
     public GameObject[] rings;
     public GameObject Counter;
     public GameObject FinishLine;
@@ -32,12 +33,18 @@ public class GameControl : MonoBehaviour
     public float largesmall;
     public float largemedium;
     public float largelarge;
+    public Slider slider;
+    public GameObject death;
+
+    public Text textLevelCurrent;
+    public Text textLevelNext;
 
     //Declare controllers
-    public LevelControl LevelController;
+    public LevelControl LevelController;   
 
     //Declare Private Variables
     private List<GameObject> ringList = new List<GameObject>();
+
 
     private void Awake()
     {
@@ -63,6 +70,8 @@ public class GameControl : MonoBehaviour
         }
         // arranges rings by x offset depending on ring size
         AddOffset();
+
+        deltaRings = ringList[ringNumber-1].transform.position.x - ringList[0].transform.position.x;
         //Add finishline after the last circle
         var finishPos = ringList[ringNumber - 1].transform.position + new Vector3(FinishLineOffset,0,0);
 
@@ -78,13 +87,13 @@ public class GameControl : MonoBehaviour
             float offset = 0;
             if (ringList[i].tag == "ringsmall")
             {
-                offset = 0.3f;
+                offset = 0.75f;
             } else if (ringList[i].tag == "ringmedium")
             {
-                offset = 0.5f;
+                offset = 0.8f;
             } else if (ringList[i].tag == "ringlarge")
             {
-                offset = 0.7f;
+                offset = 0.9f;
             }
             Instantiate(Counter, ringList[i].transform.position - new Vector3(offset, 0, 0), Quaternion.identity);
 
@@ -101,7 +110,12 @@ public class GameControl : MonoBehaviour
         }
 
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+        textLevelCurrent.text = LevelController.GetLevel().ToString();
+        textLevelNext.text = (LevelController.GetLevel() + 1).ToString();
+
     }
+
+
 
     public void Dead()
     {
@@ -122,18 +136,27 @@ public class GameControl : MonoBehaviour
         StartCoroutine(Delay(1f));
     }
 
-    //Sam please retrieve the current level from Levelcontroller and increment score by its current level
     public void IncrementScore()
     {
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + LevelController.GetLevel());
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
     }
 
     public void ExponentialScore(int passedcount)
     {
-        // exponential algooorithm coem up with here.
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
+        var sumOfScore=0;
+        for (int i = 1; i < (passedcount+1); i++)
+        {
+            sumOfScore = sumOfScore + i* LevelController.GetLevel();
+        }
+        
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + sumOfScore);
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("score", 0);
     }
 
     private void AddOffset()

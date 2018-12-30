@@ -16,7 +16,6 @@ public class Ball : MonoBehaviour
 
     //Declare Private variables
     private GameObject CurrentCircle;
-    private Animator ArrowAnimator;
     private Vector2 dir;
     private Vector2 newDir;
     private Rigidbody2D rb;
@@ -29,7 +28,6 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         flying = true;
-        ArrowAnimator = ArrowGO.GetComponent<Animator>();
     }
 
     private void Update()
@@ -83,7 +81,6 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag.Contains("ring"))
         {
-          //  passedCount = 0; //Reset passed count
             //Need to declare current circle for reference in CameraScript
             CurrentCircle = collision.gameObject;
             flying = false;
@@ -102,9 +99,12 @@ public class Ball : MonoBehaviour
             else
             {
                 // exponential system
-                GameControl.instance.IncrementScore();
+                GameControl.instance.ExponentialScore(passedCount);
                 passedCount = 0;
             }
+
+            Debug.Log(PlayerPrefs.GetInt("score", 0));
+            GameControl.instance.slider.value = collision.transform.position.x / GameControl.instance.deltaRings;
         }
 
         //Detect how many circles that the ball flew over
@@ -117,7 +117,7 @@ public class Ball : MonoBehaviour
 
         if(collision.tag == "gameend")
         {
-            Debug.Log("Level Up!");
+            GameControl.instance.death.SetActive(false);
             GameControl.instance.LevelClear();
         }
 
@@ -166,7 +166,6 @@ public class Ball : MonoBehaviour
     {
         //TODO: enter perfect zone logic
        // Debug.Log("Enter Perfect Zone");
-        ArrowAnimator.SetTrigger("Enlarge");
         within = true;
     }
 
@@ -174,7 +173,6 @@ public class Ball : MonoBehaviour
     {
         //TODO: leave perfect zone logic
         //Debug.Log("Leave Perfect Zone");
-        ArrowAnimator.SetTrigger("Decrease");
         within = false;
     }
 
