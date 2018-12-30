@@ -91,6 +91,15 @@ public class Ball : MonoBehaviour
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
             CurrentCircle.GetComponent<Circles>().MakeCircleStop(); //if the circle was moving before, make it stop because it looks confusing
 
+        }
+
+        //Detect how many circles that the ball flew over
+        if(collision.tag == "counter")
+        {
+            passedCount += 1;
+            FlyOver();
+            Destroy(collision.gameObject);
+
             if (passedCount == 1)
             {
                 GameControl.instance.IncrementScore();
@@ -102,17 +111,6 @@ public class Ball : MonoBehaviour
                 GameControl.instance.ExponentialScore(passedCount);
                 passedCount = 0;
             }
-
-            Debug.Log(PlayerPrefs.GetInt("score", 0));
-            GameControl.instance.slider.value = collision.transform.position.x / GameControl.instance.deltaRings;
-        }
-
-        //Detect how many circles that the ball flew over
-        if(collision.tag == "counter")
-        {
-            passedCount += 1;
-            FlyOver();
-            Destroy(collision.gameObject);
         }
 
         if(collision.tag == "gameend")
