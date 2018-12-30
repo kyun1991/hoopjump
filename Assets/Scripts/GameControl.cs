@@ -29,6 +29,8 @@ public class GameControl : MonoBehaviour
     public float FinishLineOffset = 3.0f;
 
     public Text textCurrentscore;
+    public Text textLevelCurrent;
+    public Text textLevelNext;
 
     //Declare controllers
     public LevelControl LevelController;
@@ -93,6 +95,8 @@ public class GameControl : MonoBehaviour
         }
 
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+        textLevelCurrent.text = LevelController.GetLevel().ToString();
+        textLevelNext.text = (LevelController.GetLevel() + 1).ToString();
     }
 
     public void Dead()
