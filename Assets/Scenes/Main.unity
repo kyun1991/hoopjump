@@ -6017,6 +6017,7 @@ MonoBehaviour:
   CircleMoveChance: 0.5
   movingRingsLevel: 0
   ringNumber: 10
+  deltaRings: 0
   rings:
   - {fileID: 1881262018951500, guid: 32079d3577db8d74797002404c022f2b, type: 3}
   - {fileID: 1482626311348004, guid: 741977a1e72c99341925c89f6c37c457, type: 3}
@@ -6034,6 +6035,8 @@ MonoBehaviour:
   FinishLine: {fileID: 6512286235262650555, guid: c586467460df8c54089858f120529a41,
     type: 3}
   FinishLineOffset: 7
+  slider: {fileID: 1783082298}
+  death: {fileID: 1033841447}
   textCurrentscore: {fileID: 1833181063}
   textLevelCurrent: {fileID: 1611668751}
   textLevelNext: {fileID: 1748617019}
@@ -8188,7 +8191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 30
+  RingCountCap: 12
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:

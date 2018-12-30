@@ -81,7 +81,6 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag.Contains("ring"))
         {
-          //  passedCount = 0; //Reset passed count
             //Need to declare current circle for reference in CameraScript
             CurrentCircle = collision.gameObject;
             flying = false;
@@ -103,6 +102,9 @@ public class Ball : MonoBehaviour
                 GameControl.instance.ExponentialScore(passedCount);
                 passedCount = 0;
             }
+
+            Debug.Log(PlayerPrefs.GetInt("score", 0));
+            GameControl.instance.slider.value = collision.transform.position.x / GameControl.instance.deltaRings;
         }
 
         //Detect how many circles that the ball flew over
@@ -115,7 +117,7 @@ public class Ball : MonoBehaviour
 
         if(collision.tag == "gameend")
         {
-            Debug.Log("Level Up!");
+            GameControl.instance.death.SetActive(false);
             GameControl.instance.LevelClear();
         }
     }
