@@ -97,7 +97,7 @@ public class Ball : MonoBehaviour
                 collision.GetComponent<Circles>().greenlight.SetActive(true);
                 safe = false;
             }
-            else if(!safe && passedCount == 1)
+            else if(!safe && passedCount == 1 || passedCount ==0)
             {
                 collision.GetComponent<Circles>().whitelight.SetActive(true);
             }
