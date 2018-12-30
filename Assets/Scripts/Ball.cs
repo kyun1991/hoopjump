@@ -90,7 +90,7 @@ public class Ball : MonoBehaviour
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
             CurrentCircle.GetComponent<Circles>().MakeCircleStop(); //if the circle was moving before, make it stop because it looks confusing
-
+            passedCount = 0;
         }
 
         //Detect how many circles that the ball flew over
@@ -100,17 +100,8 @@ public class Ball : MonoBehaviour
             FlyOver();
             Destroy(collision.gameObject);
 
-            if (passedCount == 1)
-            {
-                GameControl.instance.IncrementScore();
-                passedCount = 0;
-            }
-            else
-            {
-                // exponential system
-                GameControl.instance.ExponentialScore(passedCount);
-                passedCount = 0;
-            }
+            // exponential system
+            GameControl.instance.ExponentialScore(passedCount);
         }
 
         if(collision.tag == "gameend")

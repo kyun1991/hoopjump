@@ -21,7 +21,6 @@ public class GameControl : MonoBehaviour
     public GameObject FinishLine;
     public GameObject[] Minigames;
     public float FinishLineOffset = 3.0f;
-    public Text textCurrentscore;
 
     //Declare Offset Parameters
     public float smallsmall;
@@ -36,6 +35,10 @@ public class GameControl : MonoBehaviour
     public Slider slider;
     public GameObject death;
 
+    //Canvas Properties
+    public GameObject Canvas;
+    public GameObject ScoreIncrementPrefab;
+    public Text textCurrentscore;
     public Text textLevelCurrent;
     public Text textLevelNext;
 
@@ -136,22 +139,33 @@ public class GameControl : MonoBehaviour
         StartCoroutine(Delay(1f));
     }
 
+    //Increment score by its level
     public void IncrementScore()
     {
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + LevelController.GetLevel());
+        AddScore(LevelController.GetLevel());
+    }
+
+    //Called from the ball class while flying over multiple circles
+    public void ExponentialScore(int passedcount)
+    {
+        var sumOfScore = passedcount * LevelController.GetLevel();
+        AddScore(sumOfScore);
+        //Display Score
+        DisplayScore(sumOfScore);
+    }
+
+    private void AddScore(int score)
+    {
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + score);
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
     }
 
-    public void ExponentialScore(int passedcount)
+    //Call this method whenever you want to display score increment on screen.
+    private void DisplayScore(int score)
     {
-        var sumOfScore=0;
-        for (int i = 1; i < (passedcount+1); i++)
-        {
-            sumOfScore = sumOfScore + i* LevelController.GetLevel();
-        }
-        
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + sumOfScore);
-        textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+        var scoreText = Instantiate(ScoreIncrementPrefab, Canvas.transform);
+        scoreText.GetComponent<Text>().text = "+" + score;
+        Destroy(scoreText, 0.8f);
     }
 
     private void OnApplicationQuit()
