@@ -70,13 +70,13 @@ public class GameControl : MonoBehaviour
             float offset = 0;
             if (ringList[i].tag == "ringsmall")
             {
-                offset = 0.3f;
+                offset = 0.75f;
             } else if (ringList[i].tag == "ringmedium")
             {
-                offset = 0.5f;
+                offset = 0.8f;
             } else if (ringList[i].tag == "ringlarge")
             {
-                offset = 0.7f;
+                offset = 0.9f;
             }
             Instantiate(Counter, ringList[i].transform.position - new Vector3(offset, 0, 0), Quaternion.identity);
 
@@ -117,15 +117,25 @@ public class GameControl : MonoBehaviour
     //Sam please retrieve the current level from Levelcontroller and increment score by its current level
     public void IncrementScore()
     {
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + LevelController.GetLevel());
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
     }
 
     public void ExponentialScore(int passedcount)
     {
+        var sumOfScore=0;
+        for (int i = 1; i < (passedcount+1); i++)
+        {
+            sumOfScore = sumOfScore + i* LevelController.GetLevel();
+        }
         // exponential algooorithm coem up with here.
-        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + 1);
+        PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + sumOfScore);
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("score", 0);
     }
 
     private void AddOffset()

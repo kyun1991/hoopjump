@@ -16,7 +16,6 @@ public class Ball : MonoBehaviour
 
     //Declare Private variables
     private GameObject CurrentCircle;
-    private Animator ArrowAnimator;
     private Vector2 dir;
     private Vector2 newDir;
     private Rigidbody2D rb;
@@ -29,7 +28,6 @@ public class Ball : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         flying = true;
-        ArrowAnimator = ArrowGO.GetComponent<Animator>();
     }
 
     private void Update()
@@ -102,7 +100,7 @@ public class Ball : MonoBehaviour
             else
             {
                 // exponential system
-                GameControl.instance.IncrementScore();
+                GameControl.instance.ExponentialScore(passedCount);
                 passedCount = 0;
             }
         }
@@ -153,7 +151,6 @@ public class Ball : MonoBehaviour
     {
         //TODO: enter perfect zone logic
        // Debug.Log("Enter Perfect Zone");
-        ArrowAnimator.SetTrigger("Enlarge");
         within = true;
     }
 
@@ -161,7 +158,6 @@ public class Ball : MonoBehaviour
     {
         //TODO: leave perfect zone logic
         //Debug.Log("Leave Perfect Zone");
-        ArrowAnimator.SetTrigger("Decrease");
         within = false;
     }
 
