@@ -156,6 +156,6 @@ public class Circles : MonoBehaviour
         var upVector = new Vector2(0, 1); //Reference vector
         var newVector = Ball.transform.position - transform.position;
         var newAngle = Vector2.SignedAngle(upVector, newVector);
-        LargeArm.transform.rotation = Quaternion.Euler(0, 0, newAngle + 90);
+        LargeArm.transform.rotation = Quaternion.Euler(0, 0, newAngle + 90); //Because the arm is rotated 90 degrees by default
     }
 }
