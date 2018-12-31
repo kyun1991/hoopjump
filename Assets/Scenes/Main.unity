@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &116322697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1662724897923796, guid: 25a5c1736f2c54a4f9b096965375b816,
+    type: 3}
+  m_PrefabInstance: {fileID: 2096852429}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &124630550
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +340,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314654126}
   m_CullTransparentMesh: 0
+--- !u!1 &415483458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1582384834040882, guid: fa0affc3351b90843800ff78db02a33f,
+    type: 3}
+  m_PrefabInstance: {fileID: 669167329}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +663,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2140964569}
     m_Modifications:
+    - target: {fileID: 1582384834040882, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -681,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
@@ -1106,6 +1122,8 @@ MonoBehaviour:
   AdjustPerfectAntiClkwise: 15
   CircleMoveChance: 0.5
   movingRingsLevel: 0
+  pe1: {fileID: 116322697}
+  pe2: {fileID: 415483458}
   ringNumber: 10
   deltaRings: 0
   rings:
@@ -1978,6 +1996,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2140964569}
     m_Modifications:
+    - target: {fileID: 1662724897923796, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2008,7 +2030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
