@@ -269,4 +269,5 @@ public class Ball : MonoBehaviour
             child.gameObject.GetComponent<TextMesh>().color = c;
         }
     }
+
 }

@@ -131,7 +131,15 @@ public class GameControl : MonoBehaviour
 
     private void Update()
     {
-        slider.value = Ball.transform.position.x / deltaRings;
+        if (Ball.GetComponent<Ball>().GetCurrentCircle() != null)
+        {
+            //Calculate slider value by looking at which circle that the ball is currently on
+            slider.value = Ball.GetComponent<Ball>().GetCurrentCircle().transform.position.x / deltaRings;
+        }
+        else
+        {
+            slider.value = 0;
+        }
     }
 
     public void Dead()
