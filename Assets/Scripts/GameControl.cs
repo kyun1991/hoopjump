@@ -14,6 +14,9 @@ public class GameControl : MonoBehaviour
     public bool movingRingsLevel = false;
     public GameObject pe1;
     public GameObject pe2;
+    public GameObject pesmall;
+    public GameObject pemedium;
+    public GameObject pelarge;
 
     //Declare level Properties/assets
     public int ringNumber;
