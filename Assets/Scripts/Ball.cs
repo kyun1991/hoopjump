@@ -102,7 +102,7 @@ public class Ball : MonoBehaviour
                 var radius = collision.gameObject.GetComponent<CircleCollider2D>().radius;
                 var offset = radius + SafeTextOffset;
                 var newPos = collision.gameObject.transform.position + new Vector3(0, offset, 0);
-                GameObject obj = InstantiateText(newPos, "Safe");
+                InstantiateText(newPos, "Safe", SafeTextColor);
                 safe = false;
             }
             else if(!safe && passedCount == 1 || passedCount ==0)
@@ -130,7 +130,7 @@ public class Ball : MonoBehaviour
             var spawnPos = ring.transform.position + new Vector3(0, offset, 0);
             //exponential system
             var score = GameControl.instance.ExponentialScore(passedCount);
-            InstantiateText(spawnPos, "+" + score);
+            InstantiateText(spawnPos, "+" + score, ScoreTextColor);
             //Display choice words when the ball flies over more than two circles
             if(passedCount >= 2)
             {
@@ -228,16 +228,14 @@ public class Ball : MonoBehaviour
         //TODO: Instantiate and Destroy popping animation/effect
     }
 
-    private GameObject InstantiateText(Vector3 spawnPos, string text)
+    private void InstantiateText(Vector3 spawnPos, string text, Color c)
     {
         var obj = Instantiate(TextPrefab, spawnPos, Quaternion.identity);
         Destroy(obj, 0.8f);
-        GameObject toReturn = new GameObject();
         foreach (Transform child in obj.transform)
         {
-            toReturn = child.gameObject;
             child.gameObject.GetComponent<TextMesh>().text = text;
+            child.gameObject.GetComponent<TextMesh>().color = c;
         }
-        return toReturn;
     }
 }

@@ -39,6 +39,7 @@ public class GameControl : MonoBehaviour
     public GameObject Canvas;
     public GameObject ChoiceWordsTextPrefab;
     public string[] ChoiceWords;
+    public Color ChoiceWordsColor;
     public Text textCurrentscore;
     public Text textLevelCurrent;
     public Text textLevelNext;
@@ -120,8 +121,6 @@ public class GameControl : MonoBehaviour
 
     }
 
-
-
     public void Dead()
     {
         PlayerPrefs.SetInt("score", 0);
@@ -166,6 +165,7 @@ public class GameControl : MonoBehaviour
     {
         var scoreText = Instantiate(ChoiceWordsTextPrefab, Canvas.transform);
         scoreText.GetComponent<Text>().text = ChoiceWords[Random.Range(0, ChoiceWords.Length)];
+        scoreText.GetComponent<Text>().color = ChoiceWordsColor;
         Destroy(scoreText, 0.8f);
     }
 

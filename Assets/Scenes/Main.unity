@@ -1295,6 +1295,7 @@ MonoBehaviour:
   - Marvelous!
   - Magnificent!
   - Excellent!
+  ChoiceWordsColor: {r: 1, g: 0, b: 0.75776386, a: 1}
   textCurrentscore: {fileID: 1833181063}
   textLevelCurrent: {fileID: 1611668751}
   textLevelNext: {fileID: 1748617019}
@@ -2350,7 +2351,9 @@ MonoBehaviour:
   TextPrefab: {fileID: 4806833378671308626, guid: fbfe37622d715f1448d603b4a82e43c0,
     type: 3}
   ScoreTextOffset: 0.5
+  ScoreTextColor: {r: 1, g: 1, b: 1, a: 1}
   SafeTextOffset: 1
+  SafeTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!50 &2140964572
 Rigidbody2D:
   serializedVersion: 4
