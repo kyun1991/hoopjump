@@ -37,7 +37,8 @@ public class GameControl : MonoBehaviour
 
     //Canvas Properties
     public GameObject Canvas;
-    public GameObject ScoreIncrementPrefab;
+    public GameObject ChoiceWordsTextPrefab;
+    public string[] ChoiceWords;
     public Text textCurrentscore;
     public Text textLevelCurrent;
     public Text textLevelNext;
@@ -151,8 +152,6 @@ public class GameControl : MonoBehaviour
     {
         var sumOfScore = passedcount * LevelController.GetLevel();
         AddScore(sumOfScore);
-        //Display Score
-        //DisplayScore(sumOfScore);
         return sumOfScore;
     }
 
@@ -163,10 +162,10 @@ public class GameControl : MonoBehaviour
     }
 
     //Call this method whenever you want to display score increment on screen.
-    private void DisplayScore(int score)
+    public void DisplayChoiceWord()
     {
-        var scoreText = Instantiate(ScoreIncrementPrefab, Canvas.transform);
-        scoreText.GetComponent<Text>().text = "+" + score;
+        var scoreText = Instantiate(ChoiceWordsTextPrefab, Canvas.transform);
+        scoreText.GetComponent<Text>().text = ChoiceWords[Random.Range(0, ChoiceWords.Length)];
         Destroy(scoreText, 0.8f);
     }
 

@@ -1288,8 +1288,13 @@ MonoBehaviour:
   slider: {fileID: 1783082298}
   death: {fileID: 1033841447}
   Canvas: {fileID: 1616619786}
-  ScoreIncrementPrefab: {fileID: 30645556798117967, guid: 93a46b610dff60f41ab24a178c6b9375,
+  ChoiceWordsTextPrefab: {fileID: 30645556798117967, guid: 93a46b610dff60f41ab24a178c6b9375,
     type: 3}
+  ChoiceWords:
+  - Amazing!
+  - Marvelous!
+  - Magnificent!
+  - Excellent!
   textCurrentscore: {fileID: 1833181063}
   textLevelCurrent: {fileID: 1611668751}
   textLevelNext: {fileID: 1748617019}
@@ -2342,6 +2347,10 @@ MonoBehaviour:
   freeBall: 0
   flying: 0
   PerfectBoundary: 30
+  TextPrefab: {fileID: 4806833378671308626, guid: fbfe37622d715f1448d603b4a82e43c0,
+    type: 3}
+  ScoreTextOffset: 0.5
+  SafeTextOffset: 1
 --- !u!50 &2140964572
 Rigidbody2D:
   serializedVersion: 4

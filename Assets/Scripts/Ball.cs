@@ -14,7 +14,9 @@ public class Ball : MonoBehaviour
     public float PerfectBoundary = 10.0f; //Perfect boundary is +-n from the calculated perfect angle
     public GameObject TextPrefab;
     public float ScoreTextOffset = 0.5f;
+    public Color ScoreTextColor;
     public float SafeTextOffset = 1.0f;
+    public Color SafeTextColor;
 
     //Declare Private variables
     private GameObject CurrentCircle;
@@ -101,7 +103,6 @@ public class Ball : MonoBehaviour
                 var offset = radius + SafeTextOffset;
                 var newPos = collision.gameObject.transform.position + new Vector3(0, offset, 0);
                 GameObject obj = InstantiateText(newPos, "Safe");
-                //obj.GetComponent<TextMesh>().color = SafeTextColor;
                 safe = false;
             }
             else if(!safe && passedCount == 1 || passedCount ==0)
@@ -130,6 +131,11 @@ public class Ball : MonoBehaviour
             //exponential system
             var score = GameControl.instance.ExponentialScore(passedCount);
             InstantiateText(spawnPos, "+" + score);
+            //Display choice words when the ball flies over more than two circles
+            if(passedCount >= 2)
+            {
+                GameControl.instance.DisplayChoiceWord();
+            }
         }
 
         if(collision.tag == "gameend")

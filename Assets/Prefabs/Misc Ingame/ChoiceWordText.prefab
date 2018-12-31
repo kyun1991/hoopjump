@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 617857524537561426}
   - component: {fileID: 4816924008612986754}
   m_Layer: 5
-  m_Name: ScoreIncrementText
+  m_Name: ChoiceWordText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 47a6a44c9b8d35e44b92defdfb354e04, type: 3}
-    m_FontSize: 110
+    m_FontSize: 90
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
