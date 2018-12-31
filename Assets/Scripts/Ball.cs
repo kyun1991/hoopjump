@@ -130,7 +130,7 @@ public class Ball : MonoBehaviour
             var spawnPos = ring.transform.position + new Vector3(0, offset, 0);
             //exponential system
             var score = GameControl.instance.ExponentialScore(passedCount);
-            InstantiateText(spawnPos, "+" + score, ScoreTextColor);
+            InstantiateText(spawnPos, "+" + score, ScoreTextColor);            
             //Display choice words when the ball flies over more than two circles
             if(passedCount >= 2)
             {
