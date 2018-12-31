@@ -1461,7 +1461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &236807772
@@ -3417,6 +3417,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2140964569}
     m_Modifications:
     - target: {fileID: 1582384834040882, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
+      propertyPath: m_Name
+      value: pe2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582384834040882, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3451,6 +3455,18 @@ PrefabInstance:
     - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
@@ -8030,7 +8046,9 @@ MonoBehaviour:
   pelarge: {fileID: 1507619348065463895, guid: f52baf287f9e5e749acdcd34ca72b72d, type: 3}
   peringstick: {fileID: 3970314656647028621, guid: 186b1545959dc87409d495c9df0cc169,
     type: 3}
-  ringNumber: 10
+  peword: {fileID: 1667521026349315374, guid: 8f05634dc3bcf62449633d653460ba90, type: 3}
+  camReference: {fileID: 519420032}
+  ringNumber: 20
   deltaRings: 0
   rings:
   - {fileID: 1881262018951500, guid: 32079d3577db8d74797002404c022f2b, type: 3}
@@ -8062,7 +8080,7 @@ MonoBehaviour:
   - Marvelous!
   - Magnificent!
   - Excellent!
-  ChoiceWordsColor: {r: 1, g: 0, b: 0.75776386, a: 1}
+  ChoiceWordsColor: {r: 0.99607843, g: 0.8392157, b: 0.09019608, a: 1}
   textCurrentscore: {fileID: 1833181063}
   textLevelCurrent: {fileID: 1611668751}
   textLevelNext: {fileID: 1748617019}
@@ -9538,7 +9556,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.13
+  m_Time: 0.14
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.25
@@ -10598,7 +10616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 10
+  RingCountCap: 50
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:
@@ -10621,6 +10639,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2140964569}
     m_Modifications:
+    - target: {fileID: 1662724897923796, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
+      propertyPath: m_Name
+      value: pe1
+      objectReference: {fileID: 0}
     - target: {fileID: 1662724897923796, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10656,6 +10678,18 @@ PrefabInstance:
     - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}

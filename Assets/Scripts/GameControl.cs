@@ -18,6 +18,8 @@ public class GameControl : MonoBehaviour
     public GameObject pemedium;
     public GameObject pelarge;
     public GameObject peringstick;
+    public GameObject peword;
+    public Transform camReference;
 
     //Declare level Properties/assets
     public int ringNumber;
@@ -186,6 +188,9 @@ public class GameControl : MonoBehaviour
     public void DisplayChoiceWord()
     {
         var scoreText = Instantiate(ChoiceWordsTextPrefab, Canvas.transform);
+        var temp3 = Instantiate(peword, camReference);
+        temp3.transform.localPosition = new Vector3(0, 3.65f, 10);
+        Destroy(temp3, 1f);
         scoreText.GetComponent<Text>().text = ChoiceWords[Random.Range(0, ChoiceWords.Length)];
         scoreText.GetComponent<Text>().color = ChoiceWordsColor;
         Destroy(scoreText, 2f);
