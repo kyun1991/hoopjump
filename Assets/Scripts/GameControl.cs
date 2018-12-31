@@ -47,7 +47,8 @@ public class GameControl : MonoBehaviour
     public Text textLevelNext;
 
     //Declare controllers
-    public LevelControl LevelController;   
+    public LevelControl LevelController;
+    public CameraScript CameraScript;
 
     //Declare Private Variables
     private List<GameObject> ringList = new List<GameObject>();
@@ -126,6 +127,7 @@ public class GameControl : MonoBehaviour
     public void Dead()
     {
         PlayerPrefs.SetInt("score", 0);
+        CameraScript.Dead = true;
         StartCoroutine(Delay(1f));
     }
 
