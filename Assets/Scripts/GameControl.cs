@@ -244,4 +244,9 @@ public class GameControl : MonoBehaviour
             ringList[i].GetComponent<Circles>().AddNextCircle(ringList[i + 1]);
         }
     }
+
+    public int GetLevel()
+    {
+        return LevelController.GetLevel();
+    }
 }
