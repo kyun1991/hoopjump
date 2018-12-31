@@ -12,6 +12,8 @@ public class GameControl : MonoBehaviour
     public float AdjustPerfectAntiClkwise = 15f;
     public float CircleMoveChance = 0.1f;
     public bool movingRingsLevel = false;
+    public GameObject pe1;
+    public GameObject pe2;
 
     //Declare level Properties/assets
     public int ringNumber;

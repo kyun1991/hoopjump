@@ -9,6 +9,7 @@ public class Circles : MonoBehaviour
     public GameObject greenlight;
     public GameObject redlight;
     public GameObject whitelight;
+    public bool colorChanged;
 
     //Declare private variables
     private int spin = 0;

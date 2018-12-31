@@ -95,25 +95,36 @@ public class Ball : MonoBehaviour
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
             CurrentCircle.GetComponent<Circles>().MakeCircleStop(); //if the circle was moving before, make it stop because it looks confusing
-           
-            if(safe && passedCount==1)
+
+            // set colour of ring based on passedCount number.
+            if (!collision.GetComponent<Circles>().colorChanged)
             {
-                collision.GetComponent<Circles>().greenlight.SetActive(true);
-                var radius = collision.gameObject.GetComponent<CircleCollider2D>().radius;
-                var offset = radius + SafeTextOffset;
-                var newPos = collision.gameObject.transform.position + new Vector3(0, offset, 0);
-                InstantiateText(newPos, "Safe", SafeTextColor);
-                safe = false;
-            }
-            else if(!safe && passedCount == 1 || passedCount ==0)
-            {
-                collision.GetComponent<Circles>().whitelight.SetActive(true);
-            }
-            else
-            {
-                collision.GetComponent<Circles>().redlight.SetActive(true);
-            }
-            passedCount = 0;
+                if (safe && passedCount == 1)
+                {
+                    collision.GetComponent<Circles>().greenlight.SetActive(true);
+                    var radius = collision.gameObject.GetComponent<CircleCollider2D>().radius;
+                    var offset = radius + SafeTextOffset;
+                    var newPos = collision.gameObject.transform.position + new Vector3(0, offset, 0);
+                    InstantiateText(newPos, "Safe", SafeTextColor);
+                    safe = false;
+                    GameControl.instance.pe1.SetActive(true);
+                    GameControl.instance.pe2.SetActive(false);
+                }
+                else if (!safe && passedCount == 1 || passedCount == 0)
+                {
+                    collision.GetComponent<Circles>().whitelight.SetActive(true);
+                    GameControl.instance.pe1.SetActive(false);
+                    GameControl.instance.pe2.SetActive(false);
+                }
+                else
+                {
+                    collision.GetComponent<Circles>().redlight.SetActive(true);
+                    GameControl.instance.pe1.SetActive(true);
+                    GameControl.instance.pe2.SetActive(true);
+                }
+                passedCount = 0;
+                collision.GetComponent<Circles>().colorChanged = true;
+            }        
         }
 
         //Detect how many circles that the ball flew over
@@ -130,7 +141,7 @@ public class Ball : MonoBehaviour
             var spawnPos = ring.transform.position + new Vector3(0, offset, 0);
             //exponential system
             var score = GameControl.instance.ExponentialScore(passedCount);
-            InstantiateText(spawnPos, "+" + score, ScoreTextColor);
+            InstantiateText(spawnPos, "+" + score, ScoreTextColor);            
             //Display choice words when the ball flies over more than two circles
             if(passedCount >= 2)
             {
@@ -188,14 +199,12 @@ public class Ball : MonoBehaviour
     private void EnterPerfectZone()
     {
         //TODO: enter perfect zone logic
-       // Debug.Log("Enter Perfect Zone");
         within = true;
     }
 
     private void LeavePerfectZone()
     {
         //TODO: leave perfect zone logic
-        //Debug.Log("Leave Perfect Zone");
         within = false;
     }
 
@@ -211,13 +220,13 @@ public class Ball : MonoBehaviour
 
     public void JumpWithinPerfect()
     {
-        Debug.Log("Perfect!!");
+  
         safe = true;
     }
 
     private void FlyOver()
     {
-        Debug.Log("Flew over: " + passedCount + " circles");
+       
     }
 
     //Called when ball hits one of the endblocks
