@@ -1124,6 +1124,10 @@ MonoBehaviour:
   movingRingsLevel: 0
   pe1: {fileID: 116322697}
   pe2: {fileID: 415483458}
+  pesmall: {fileID: 5975241964850377559, guid: 6833ccda1721ffe488c5ceaff3991ad6, type: 3}
+  pemedium: {fileID: 5969770606866126655, guid: aa6ad159914238c4483c6052cbc1db31,
+    type: 3}
+  pelarge: {fileID: 1507619348065463895, guid: f52baf287f9e5e749acdcd34ca72b72d, type: 3}
   ringNumber: 10
   deltaRings: 0
   rings:

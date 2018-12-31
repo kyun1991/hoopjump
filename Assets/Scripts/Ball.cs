@@ -95,6 +95,18 @@ public class Ball : MonoBehaviour
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
             CurrentCircle.GetComponent<Circles>().MakeCircleStop(); //if the circle was moving before, make it stop because it looks confusing
+            if (collision.tag.Contains("small"))
+            {
+                var temp = Instantiate(GameControl.instance.pesmall, collision.transform.position, Quaternion.identity);
+            }
+            else if (collision.tag.Contains("medium"))
+            {
+                var temp = Instantiate(GameControl.instance.pemedium, collision.transform.position, Quaternion.identity);
+            }
+            else
+            {
+                var temp = Instantiate(GameControl.instance.pelarge, collision.transform.position, Quaternion.identity);
+            }
 
             // set colour of ring based on passedCount number.
             if (!collision.GetComponent<Circles>().colorChanged)
