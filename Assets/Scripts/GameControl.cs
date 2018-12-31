@@ -22,6 +22,7 @@ public class GameControl : MonoBehaviour
     public int ringNumber;
     public float deltaRings; // distance between first and last ring to calculate slider value
     public GameObject[] rings;
+    public GameObject Ball;
     public GameObject Counter;
     public GameObject FinishLine;
     public GameObject[] Minigames;
@@ -125,6 +126,11 @@ public class GameControl : MonoBehaviour
         textLevelCurrent.text = LevelController.GetLevel().ToString();
         textLevelNext.text = (LevelController.GetLevel() + 1).ToString();
 
+    }
+
+    private void Update()
+    {
+        slider.value = Ball.transform.position.x / deltaRings;
     }
 
     public void Dead()

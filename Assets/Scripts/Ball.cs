@@ -98,14 +98,17 @@ public class Ball : MonoBehaviour
             if (collision.tag.Contains("small"))
             {
                 var temp = Instantiate(GameControl.instance.pesmall, collision.transform.position, Quaternion.identity);
+                Destroy(temp, 2f);
             }
             else if (collision.tag.Contains("medium"))
             {
                 var temp = Instantiate(GameControl.instance.pemedium, collision.transform.position, Quaternion.identity);
+                Destroy(temp, 2f);
             }
             else
             {
                 var temp = Instantiate(GameControl.instance.pelarge, collision.transform.position, Quaternion.identity);
+                Destroy(temp, 2f);
             }
 
             // set colour of ring based on passedCount number.
