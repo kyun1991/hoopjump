@@ -111,6 +111,10 @@ public class Ball : MonoBehaviour
                 Destroy(temp, 2f);
             }
 
+            var temp2 = Instantiate(GameControl.instance.peringstick, transform.position, Quaternion.identity);
+            Destroy(temp2, 2f);
+
+
             // set colour of ring based on passedCount number.
             if (!collision.GetComponent<Circles>().colorChanged)
             {

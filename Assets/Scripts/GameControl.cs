@@ -17,6 +17,7 @@ public class GameControl : MonoBehaviour
     public GameObject pesmall;
     public GameObject pemedium;
     public GameObject pelarge;
+    public GameObject peringstick;
 
     //Declare level Properties/assets
     public int ringNumber;

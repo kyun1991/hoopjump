@@ -1452,6 +1452,8 @@ MonoBehaviour:
   pemedium: {fileID: 5969770606866126655, guid: aa6ad159914238c4483c6052cbc1db31,
     type: 3}
   pelarge: {fileID: 1507619348065463895, guid: f52baf287f9e5e749acdcd34ca72b72d, type: 3}
+  peringstick: {fileID: 3970314656647028621, guid: 186b1545959dc87409d495c9df0cc169,
+    type: 3}
   ringNumber: 10
   deltaRings: 0
   rings:
