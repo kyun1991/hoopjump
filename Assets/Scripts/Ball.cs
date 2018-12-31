@@ -94,6 +94,7 @@ public class Ball : MonoBehaviour
             transform.SetParent(collision.transform);
             ArrowGO.SetActive(true);
             clockwise = CurrentCircle.GetComponent<Circles>().SpinDirection();
+            CurrentCircle.GetComponent<Circles>().AdjustLargeArmRotation(gameObject); //Adjust Large Arm rotation
             CurrentCircle.GetComponent<Circles>().MakeCircleStop(); //if the circle was moving before, make it stop because it looks confusing
             if (collision.tag.Contains("small"))
             {

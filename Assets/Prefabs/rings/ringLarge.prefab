@@ -136,10 +136,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e01c54de38bb23f458b4c82ec6e1cd92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LargeArm: {fileID: 1662736550564840}
   Perfect: {fileID: 1558279957147496}
   greenlight: {fileID: 1802491991104289008}
   redlight: {fileID: 2970310539175154981}
   whitelight: {fileID: 3297959114388320948}
+  colorChanged: 0
   speed: 1
 --- !u!1 &1246849615193944
 GameObject:

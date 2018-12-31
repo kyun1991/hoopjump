@@ -8044,7 +8044,7 @@ MonoBehaviour:
     type: 3}
   Minigames:
   - {fileID: 4880261864524785484, guid: e168096d2f5ffb24c829402f558faf92, type: 3}
-  FinishLineOffset: 7
+  FinishLineOffset: 3
   smallsmall: 2
   smallmedium: 2
   smalllarge: 2

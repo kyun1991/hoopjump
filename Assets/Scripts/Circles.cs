@@ -5,6 +5,7 @@ using UnityEngine;
 public class Circles : MonoBehaviour
 {
     //Declare public variables
+    public GameObject LargeArm;
     public GameObject Perfect;
     public GameObject greenlight;
     public GameObject redlight;
@@ -148,5 +149,13 @@ public class Circles : MonoBehaviour
     public void MakeCircleStop()
     {
         isMove = false;
+    }
+
+    public void AdjustLargeArmRotation(GameObject Ball)
+    {
+        var upVector = new Vector2(0, 1); //Reference vector
+        var newVector = Ball.transform.position - transform.position;
+        var newAngle = Vector2.SignedAngle(upVector, newVector);
+        LargeArm.transform.rotation = Quaternion.Euler(0, 0, newAngle + 90);
     }
 }
