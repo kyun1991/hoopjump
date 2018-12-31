@@ -137,6 +137,13 @@ public class Ball : MonoBehaviour
                     GameControl.instance.pe1.SetActive(true);
                     GameControl.instance.pe2.SetActive(true);
                 }
+
+                //Display choice Word
+                if (passedCount >= 2)
+                {
+                    GameControl.instance.DisplayChoiceWord();
+                }
+
                 passedCount = 0;
                 collision.GetComponent<Circles>().colorChanged = true;
             }        
@@ -158,10 +165,6 @@ public class Ball : MonoBehaviour
             var score = GameControl.instance.ExponentialScore(passedCount);
             InstantiateText(spawnPos, "+" + score, ScoreTextColor);            
             //Display choice words when the ball flies over more than two circles
-            if(passedCount >= 2)
-            {
-                GameControl.instance.DisplayChoiceWord();
-            }
         }
 
         if(collision.tag == "gameend")
@@ -255,7 +258,7 @@ public class Ball : MonoBehaviour
     private void InstantiateText(Vector3 spawnPos, string text, Color c)
     {
         var obj = Instantiate(TextPrefab, spawnPos, Quaternion.identity);
-        Destroy(obj, 0.8f);
+        Destroy(obj, 2f);
         foreach (Transform child in obj.transform)
         {
             child.gameObject.GetComponent<TextMesh>().text = text;

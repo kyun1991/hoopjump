@@ -179,7 +179,7 @@ public class GameControl : MonoBehaviour
         var scoreText = Instantiate(ChoiceWordsTextPrefab, Canvas.transform);
         scoreText.GetComponent<Text>().text = ChoiceWords[Random.Range(0, ChoiceWords.Length)];
         scoreText.GetComponent<Text>().color = ChoiceWordsColor;
-        Destroy(scoreText, 0.8f);
+        Destroy(scoreText, 2f);
     }
 
     private void OnApplicationQuit()
