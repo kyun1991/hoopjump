@@ -98,7 +98,8 @@ public class GameControl : MonoBehaviour
             {
                 offset = 0.9f;
             }
-            Instantiate(Counter, ringList[i].transform.position - new Vector3(offset, 0, 0), Quaternion.identity);
+            var counter = Instantiate(Counter, ringList[i].transform.position - new Vector3(offset, 0, 0), Quaternion.identity);
+            counter.GetComponent<Counter>().Ring = ringList[i]; //Hold reference to the ring
 
             //Check if its moving Rings level
             if (movingRingsLevel)
@@ -146,12 +147,13 @@ public class GameControl : MonoBehaviour
     }
 
     //Called from the ball class while flying over multiple circles
-    public void ExponentialScore(int passedcount)
+    public int ExponentialScore(int passedcount)
     {
         var sumOfScore = passedcount * LevelController.GetLevel();
         AddScore(sumOfScore);
         //Display Score
-        DisplayScore(sumOfScore);
+        //DisplayScore(sumOfScore);
+        return sumOfScore;
     }
 
     private void AddScore(int score)

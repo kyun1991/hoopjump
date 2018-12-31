@@ -7,12 +7,14 @@ public class Ball : MonoBehaviour
 
     //Declare public variables
     public GameObject ArrowGO;
-
     public Transform Arrow;
     public float ballForce;
     public bool freeBall;
     public bool flying;
     public float PerfectBoundary = 10.0f; //Perfect boundary is +-n from the calculated perfect angle
+    public GameObject TextPrefab;
+    public float ScoreTextOffset = 0.5f;
+    public float SafeTextOffset = 1.0f;
 
     //Declare Private variables
     private GameObject CurrentCircle;
@@ -95,6 +97,11 @@ public class Ball : MonoBehaviour
             if(safe && passedCount==1)
             {
                 collision.GetComponent<Circles>().greenlight.SetActive(true);
+                var radius = collision.gameObject.GetComponent<CircleCollider2D>().radius;
+                var offset = radius + SafeTextOffset;
+                var newPos = collision.gameObject.transform.position + new Vector3(0, offset, 0);
+                GameObject obj = InstantiateText(newPos, "Safe");
+                //obj.GetComponent<TextMesh>().color = SafeTextColor;
                 safe = false;
             }
             else if(!safe && passedCount == 1 || passedCount ==0)
@@ -115,8 +122,14 @@ public class Ball : MonoBehaviour
             FlyOver();
             Destroy(collision.gameObject);
 
-            // exponential system
-            GameControl.instance.ExponentialScore(passedCount);
+            //See which ring the counter is referring to, and instantiate the score text above the ring when it flies over
+            var ring = collision.gameObject.GetComponent<Counter>().Ring;
+            var radius = ring.GetComponent<CircleCollider2D>().radius;
+            var offset = radius + ScoreTextOffset;
+            var spawnPos = ring.transform.position + new Vector3(0, offset, 0);
+            //exponential system
+            var score = GameControl.instance.ExponentialScore(passedCount);
+            InstantiateText(spawnPos, "+" + score);
         }
 
         if(collision.tag == "gameend")
@@ -207,5 +220,18 @@ public class Ball : MonoBehaviour
         Destroy(obj);
         GameControl.instance.IncrementScore();
         //TODO: Instantiate and Destroy popping animation/effect
+    }
+
+    private GameObject InstantiateText(Vector3 spawnPos, string text)
+    {
+        var obj = Instantiate(TextPrefab, spawnPos, Quaternion.identity);
+        Destroy(obj, 0.8f);
+        GameObject toReturn = new GameObject();
+        foreach (Transform child in obj.transform)
+        {
+            toReturn = child.gameObject;
+            child.gameObject.GetComponent<TextMesh>().text = text;
+        }
+        return toReturn;
     }
 }
