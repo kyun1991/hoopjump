@@ -24,6 +24,9 @@ public class GameControl : MonoBehaviour
     public GameObject panelMain;
     public GameObject panelMainGO;
     public Animator AnimCam;
+    public GameObject pemask3;
+    public GameObject pemask2;
+    public GameObject pemask1;
 
     //Declare level Properties/assets
     public int ringNumber;
