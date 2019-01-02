@@ -12117,6 +12117,8 @@ MonoBehaviour:
   ScoreTextColor: {r: 1, g: 1, b: 1, a: 1}
   SafeTextOffset: 1
   SafeTextColor: {r: 0, g: 1, b: 0, a: 1}
+  OrigHandColor: {r: 0.9607844, g: 0, b: 0.48235297, a: 1}
+  HandChangeColor: {r: 0.56620824, g: 1, b: 0, a: 1}
   PopSound: {fileID: 249274251}
   PointSound: {fileID: 1881417784}
   ClearSound: {fileID: 1858360637}

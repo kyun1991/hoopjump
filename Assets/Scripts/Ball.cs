@@ -19,6 +19,8 @@ public class Ball : MonoBehaviour
     public Color ScoreTextColor;
     public float SafeTextOffset = 1.0f;
     public Color SafeTextColor;
+    public Color OrigHandColor;
+    public Color HandChangeColor;
     public AudioSource PopSound;
     public AudioSource PointSound;
     public AudioSource ClearSound;
@@ -257,14 +259,14 @@ public class Ball : MonoBehaviour
     private void EnterPerfectZone()
     {
         //TODO: enter perfect zone logic
+        CurrentCircle.GetComponent<Circles>().LargeArm.transform.GetChild(0).GetComponent<SpriteRenderer>().color = HandChangeColor;
         within = true;
-        CurrentCircle.GetComponent<Circles>().Perfect.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void LeavePerfectZone()
     {
         //TODO: leave perfect zone logic
-        CurrentCircle.GetComponent<Circles>().Perfect.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+        CurrentCircle.GetComponent<Circles>().LargeArm.transform.GetChild(0).GetComponent<SpriteRenderer>().color = OrigHandColor;
         within = false;
     }
 
