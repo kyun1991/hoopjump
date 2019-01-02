@@ -106,6 +106,12 @@ public class Ball : MonoBehaviour
             CurrentCircle = collision.gameObject;
             flying = false;
             rb.velocity = new Vector3(0, 0, 0);
+
+            //HAHAHA
+            dir = transform.position - CurrentCircle.transform.position;
+            var radius = collision.gameObject.GetComponent<CircleCollider2D>().radius;
+            transform.position = CurrentCircle.transform.position + (Vector3)(dir.normalized * radius);
+
             rb.isKinematic = true;
             transform.SetParent(collision.transform);
             ArrowGO.SetActive(true);
@@ -138,7 +144,6 @@ public class Ball : MonoBehaviour
                 if (safe && passedCount == 1)
                 {
                     collision.GetComponent<Circles>().greenlight.SetActive(true);
-                    var radius = collision.gameObject.GetComponent<CircleCollider2D>().radius;
                     var offset = radius + SafeTextOffset;
                     var newPos = collision.gameObject.transform.position + new Vector3(0, offset, 0);
                     InstantiateText(newPos, "Safe", SafeTextColor);
