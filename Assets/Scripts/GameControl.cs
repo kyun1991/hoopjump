@@ -20,6 +20,10 @@ public class GameControl : MonoBehaviour
     public GameObject peringstick;
     public GameObject peword;
     public Transform camReference;
+    public GameObject panelIngame;
+    public GameObject panelMain;
+    public GameObject panelMainGO;
+    public Animator AnimCam;
 
     //Declare level Properties/assets
     public int ringNumber;
@@ -78,8 +82,9 @@ public class GameControl : MonoBehaviour
         //Declare all level related parameters - How many rings? Are the rings moving?
         LevelController.SetLevel();
 
+        ringList.Add(Instantiate(rings[0], new Vector3(0, 0, 0), Quaternion.identity));
         // initial spawn of rings at origin
-        for (int i = 0; i < ringNumber; i++)
+        for (int i = 0; i < (ringNumber-1); i++)
         {
             ringList.Add(Instantiate(rings[Random.Range(0,rings.Length)],new Vector3(0,0,0),Quaternion.identity));
         }
@@ -127,8 +132,7 @@ public class GameControl : MonoBehaviour
 
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
         textLevelCurrent.text = LevelController.GetLevel().ToString();
-        textLevelNext.text = (LevelController.GetLevel() + 1).ToString();
-
+        textLevelNext.text = (LevelController.GetLevel() + 1).ToString();        
     }
 
     private void Update()
@@ -147,6 +151,7 @@ public class GameControl : MonoBehaviour
     public void Dead()
     {
         PlayerPrefs.SetInt("score", 0);
+        Ball.SetActive(false);
         CameraScript.Dead = true;
         StartCoroutine(Delay(1f));
     }
@@ -261,5 +266,15 @@ public class GameControl : MonoBehaviour
     public int GetLevel()
     {
         return LevelController.GetLevel();
+    }
+
+    public void StartButton()
+    {
+        panelMain.SetActive(false);
+        panelMainGO.SetActive(false);
+        panelIngame.SetActive(true);
+        AnimCam.SetTrigger("movecam");
+        Destroy(AnimCam, 0.3f);
+        Ball.GetComponent<Rigidbody2D>().isKinematic = false;
     }
 }
