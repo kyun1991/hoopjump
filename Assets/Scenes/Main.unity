@@ -2848,6 +2848,7 @@ MonoBehaviour:
   Stop: 0
   EndCamSize: 11
   EndXOffset: 4.5
+  CamYOffset: 5.5
 --- !u!95 &519420034
 Animator:
   serializedVersion: 3

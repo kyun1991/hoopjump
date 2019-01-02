@@ -321,7 +321,7 @@ public class GameControl : MonoBehaviour
         int bonusPoints = 0;
         CameraScript.StopMoving();
         var xPos = Camera.main.transform.position.x;
-        var yPos = BonusTextYPos;
+        var yPos = Camera.main.transform.position.y + CameraScript.CamYOffset;
         Vector3 spawnPos = new Vector3(xPos, yPos, 0);
         GameObject newobj = new GameObject();
 

@@ -11,6 +11,7 @@ public class CameraScript : MonoBehaviour {
     public bool Stop;
     public float EndCamSize = 11.0f;
     public float EndXOffset = 2.5f;
+    public float CamYOffset = 4.0f;
 
     //Declare private variables
     private Ball BallScript;
