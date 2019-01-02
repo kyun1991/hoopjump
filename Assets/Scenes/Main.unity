@@ -3676,10 +3676,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: pe2
       objectReference: {fileID: 0}
-    - target: {fileID: 1582384834040882, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4504848039033772, guid: fa0affc3351b90843800ff78db02a33f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11019,7 +11015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 3
+  RingCountCap: 20
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:
@@ -11045,10 +11041,6 @@ PrefabInstance:
     - target: {fileID: 1662724897923796, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
       propertyPath: m_Name
       value: pe1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1662724897923796, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4499674482335438, guid: 25a5c1736f2c54a4f9b096965375b816, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11411,7 +11403,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: a358878348b512c4dbebf9189b72c467, type: 3}
   m_Color: {r: 1, g: 0.73867106, b: 0.36320752, a: 1}
   m_FlipX: 0
