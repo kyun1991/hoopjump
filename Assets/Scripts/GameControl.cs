@@ -180,7 +180,7 @@ public class GameControl : MonoBehaviour
     public void LevelClear()
     {
         LevelController.LevelUp();
-        StartCoroutine(Delay(1f));
+        StartCoroutine(Delay(2.5f));
     }
 
     //Increment score by its level
