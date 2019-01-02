@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a64e5b0e436d4bed9780211ae245f7b, type: 3}
+  m_Name: Bravo_Data
+  m_EditorClassIdentifier: 
+  dataName: Bravo
+  dragonBonesJSON: {fileID: 4900000, guid: a07f1484167840c4d92c5725990e5c96, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 888012fa5cac1194aae9de04b463414b, type: 3}
+    texture: {fileID: 2800000, guid: 221abb243bc7e144a86904d46d8ce787, type: 3}
+    material: {fileID: 2100000, guid: b854f7aa9986b124f874e7b87b8b1332, type: 2}
+    uiMaterial: {fileID: 0}
