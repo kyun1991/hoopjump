@@ -11952,7 +11952,7 @@ MonoBehaviour:
   ballVel: 10
   freeBall: 0
   flying: 0
-  PerfectBoundary: 15
+  PerfectBoundary: 30
   TextPrefab: {fileID: 4806833378671308626, guid: fbfe37622d715f1448d603b4a82e43c0,
     type: 3}
   ScoreTextOffset: 0.5
