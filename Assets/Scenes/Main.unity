@@ -1731,6 +1731,12 @@ Transform:
   m_Father: {fileID: 118761623}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &249274251 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3152897716336506164, guid: 273614d13a43844448ee5344e4990674,
+    type: 3}
+  m_PrefabInstance: {fileID: 920995617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &264562662
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,7 +2845,8 @@ MonoBehaviour:
   Ball: {fileID: 2140964567}
   XOffset: 2.2
   AdjustSpeed: 5
-  Dead: 0
+  Stop: 0
+  EndCamSize: 11
 --- !u!95 &519420034
 Animator:
   serializedVersion: 3
@@ -5144,6 +5151,75 @@ Transform:
   m_Father: {fileID: 118761623}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &920995617
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3152897716948079806, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.319769
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5005313
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 273614d13a43844448ee5344e4990674, type: 3}
 --- !u!1 &971733907
 GameObject:
   m_ObjectHideFlags: 0
@@ -8476,8 +8552,15 @@ MonoBehaviour:
   FinishLine: {fileID: 8840440251781609252, guid: c586467460df8c54089858f120529a41,
     type: 3}
   Minigames:
-  - {fileID: 4880261864524785484, guid: e168096d2f5ffb24c829402f558faf92, type: 3}
-  FinishLineOffset: 3
+  - {fileID: 9079499859712879144, guid: 596eb8572a6343b4eb51610ed2faf53f, type: 3}
+  Bonus1Text: {fileID: 4850182045718963873, guid: b9919ba3d7c679c408d8b364d487921b,
+    type: 3}
+  Bonus2Text: {fileID: 8086558585768122379, guid: ab329fd17e11e83468a22e47c217577e,
+    type: 3}
+  Bonus3Text: {fileID: 3150107956225863149, guid: db9fb66627b140b419f83d41b0e32446,
+    type: 3}
+  BonusTextYPos: 5.5
+  FinishLineOffset: 6.5
   smallsmall: 2
   smallmedium: 2
   smalllarge: 2
@@ -11065,7 +11148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 20
+  RingCountCap: 3
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:
@@ -11522,6 +11605,7 @@ MonoBehaviour:
   ScoreTextColor: {r: 1, g: 1, b: 1, a: 1}
   SafeTextOffset: 1
   SafeTextColor: {r: 0, g: 1, b: 0, a: 1}
+  PopSound: {fileID: 249274251}
 --- !u!50 &2140964572
 Rigidbody2D:
   serializedVersion: 4

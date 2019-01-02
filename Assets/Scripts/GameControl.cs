@@ -31,8 +31,14 @@ public class GameControl : MonoBehaviour
     public GameObject[] rings;
     public GameObject Ball;
     public GameObject Counter;
+
+    //Bonus & Endgame
     public GameObject FinishLine;
     public GameObject[] Minigames;
+    public GameObject Bonus1Text;
+    public GameObject Bonus2Text;
+    public GameObject Bonus3Text;
+    public float BonusTextYPos = 5.5f;
     public float FinishLineOffset = 3.0f;
 
     //Declare Offset Parameters
@@ -63,6 +69,7 @@ public class GameControl : MonoBehaviour
 
     //Declare Private Variables
     private List<GameObject> ringList = new List<GameObject>();
+    private GameObject spawnedDartBoard;
 
 
     private void Awake()
@@ -98,7 +105,8 @@ public class GameControl : MonoBehaviour
         //Instantiate a random minigame at the end
         Instantiate(FinishLine, finishPos, Quaternion.identity);
         var minigame = Minigames[Random.Range(0, Minigames.Length)];
-        Instantiate(minigame, finishPos, Quaternion.identity);
+        spawnedDartBoard = Instantiate(minigame, finishPos, Quaternion.identity);
+        spawnedDartBoard.SetActive(false);
 
 
         for (int i = 1; i < ringNumber; i++)
@@ -152,7 +160,7 @@ public class GameControl : MonoBehaviour
     {
         PlayerPrefs.SetInt("score", 0);
         Ball.SetActive(false);
-        CameraScript.Dead = true;
+        CameraScript.StopMoving();
         StartCoroutine(Delay(1f));
     }
 
@@ -276,5 +284,48 @@ public class GameControl : MonoBehaviour
         AnimCam.SetTrigger("movecam");
         Destroy(AnimCam, 0.3f);
         Ball.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+
+    //Called from Ball class
+    public GameObject GetLastRing()
+    {
+        return ringList[ringNumber-1];
+    }
+
+    //Called from Ball class
+    public void OnLastRing()
+    {
+        spawnedDartBoard.SetActive(true); //Need Animation Transition in
+        CameraScript.IncreaseCameraSize();
+    }
+
+    public void RewardBonus(int bonusCount)
+    {
+        int bonusPoints = 0;
+        CameraScript.StopMoving();
+        var xPos = Camera.main.transform.position.x;
+        var yPos = BonusTextYPos;
+        Vector3 spawnPos = new Vector3(xPos, yPos, 0);
+        GameObject newobj = new GameObject();
+
+        if (bonusCount == 0)
+        {
+
+        }
+        else if(bonusCount == 1)
+        {
+            bonusPoints = GetLevel() * 5;
+            newobj = Instantiate(Bonus1Text, spawnPos, Quaternion.identity);
+        }
+        else if(bonusCount == 2)
+        {
+            bonusPoints = GetLevel() * 10;
+            newobj = Instantiate(Bonus2Text, spawnPos, Quaternion.identity);
+        }
+        else
+        {
+            bonusPoints = GetLevel() * 20;
+            newobj = Instantiate(Bonus3Text, spawnPos, Quaternion.identity);
+        }
     }
 }

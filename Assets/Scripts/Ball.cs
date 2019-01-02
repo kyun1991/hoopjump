@@ -17,6 +17,7 @@ public class Ball : MonoBehaviour
     public Color ScoreTextColor;
     public float SafeTextOffset = 1.0f;
     public Color SafeTextColor;
+    public AudioSource PopSound;
 
     //Declare Private variables
     private GameObject CurrentCircle;
@@ -27,6 +28,7 @@ public class Ball : MonoBehaviour
     private bool within = false;
     private int passedCount = 0;
     private bool safe;
+    private int bonusCount = 0;
 
     // Use this for initialization
     void Start()
@@ -86,6 +88,11 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag.Contains("ring"))
         {
+            //If the ball is on the last right perform a few functions
+            if(collision.gameObject == GameControl.instance.GetLastRing())
+            {
+                GameControl.instance.OnLastRing();
+            }
             //Need to declare current circle for reference in CameraScript
             CurrentCircle = collision.gameObject;
             flying = false;
@@ -157,10 +164,11 @@ public class Ball : MonoBehaviour
         //Detect how many circles that the ball flew over
         if(collision.tag == "counter")
         {
+            //Audio
+            PopSound.pitch = 1 + passedCount * 0.1f;
+            PopSound.Play();
             passedCount += 1;
-            FlyOver();
             Destroy(collision.gameObject);
-
             //See which ring the counter is referring to, and instantiate the score text above the ring when it flies over
             var ring = collision.gameObject.GetComponent<Counter>().Ring;
             var radius = ring.GetComponent<CircleCollider2D>().radius;
@@ -172,23 +180,18 @@ public class Ball : MonoBehaviour
             //Display choice words when the ball flies over more than two circles
         }
 
+        if(collision.tag.Contains("Bonus"))
+        {
+            Debug.Log("Bonus entered");
+            Destroy(collision.gameObject);
+            bonusCount += 1;
+        }
+
         if(collision.tag == "gameend")
         {
             GameControl.instance.death.SetActive(false);
             GameControl.instance.LevelClear();
-        }
-
-        if(collision.tag == "endblock")
-        {
-            PopEndBlock(collision.gameObject);
-        }
-
-        if(collision.tag == "heartblock")
-        {
-            foreach (Transform child in collision.gameObject.transform)
-            {
-                PopEndBlock(child.gameObject);
-            }
+            GameControl.instance.RewardBonus(bonusCount);
         }
     }
 
@@ -245,11 +248,6 @@ public class Ball : MonoBehaviour
     {
   
         safe = true;
-    }
-
-    private void FlyOver()
-    {
-       
     }
 
     //Called when ball hits one of the endblocks

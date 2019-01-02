@@ -12,6 +12,11 @@ TagManager:
   - gameend
   - endblock
   - heartblock
+  - Diamond
+  - Outer
+  - Middle
+  - Inner
+  - Bonus
   layers:
   - Default
   - TransparentFX
