@@ -8557,6 +8557,9 @@ MonoBehaviour:
   panelMain: {fileID: 236807770}
   panelMainGO: {fileID: 1716044766}
   AnimCam: {fileID: 519420034}
+  pemask3: {fileID: 0}
+  pemask2: {fileID: 0}
+  pemask1: {fileID: 0}
   ringNumber: 20
   deltaRings: 0
   rings:
@@ -8576,7 +8579,7 @@ MonoBehaviour:
   Bonus3Text: {fileID: 3150107956225863149, guid: db9fb66627b140b419f83d41b0e32446,
     type: 3}
   BonusTextYPos: 5.5
-  FinishLineOffset: 6.5
+  FinishLineOffset: 7
   Touch: {fileID: 1530473649}
   TextPrefab: {fileID: 8194356203068143765, guid: 7940cbd193ad169428c67d65572fac4e,
     type: 3}
@@ -11497,7 +11500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 3
+  RingCountCap: 30
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:

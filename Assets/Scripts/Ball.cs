@@ -65,7 +65,10 @@ public class Ball : MonoBehaviour
             var Boundary2 = PerfectAngle + PerfectBoundary; //Second Boundary
             if (Boundary1 <= -360)
             {
-                Boundary1 += 360; //Adjust angle it needs to be within 0 ~ -360
+                if(angle - 360 >= Boundary1)
+                {
+                    angle -= 360;
+                }
             }
 
             if (angle <= Boundary2 && angle >= Boundary1)
@@ -185,7 +188,7 @@ public class Ball : MonoBehaviour
 
         if(collision.tag.Contains("Bonus"))
         {
-            Debug.Log("Bonus entered");        
+            Debug.Log("Bonus entered");
             Destroy(collision.gameObject);
             bonusCount += 1;
             if(bonusCount == 1)
@@ -199,18 +202,6 @@ public class Ball : MonoBehaviour
             else
             {
                 ClearSound.Play();
-            }
-            if (collision.tag.Contains("3"))
-            {
-                Instantiate(GameControl.instance.pemask3, collision.transform.position, Quaternion.identity);
-            }
-            else if (collision.tag.Contains("2"))
-            {
-                Instantiate(GameControl.instance.pemask2, collision.transform.position, Quaternion.identity);
-            }
-            else if (collision.tag.Contains("1"))
-            {
-                Instantiate(GameControl.instance.pemask1, collision.transform.position, Quaternion.identity);
             }
         }
 
