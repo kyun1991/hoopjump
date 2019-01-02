@@ -41,8 +41,8 @@ public class GameControl : MonoBehaviour
     public GameObject Bonus1Text;
     public GameObject Bonus2Text;
     public GameObject Bonus3Text;
-    public float BonusTextYPos = 5.5f;
-    public float FinishLineOffset = 3.0f;
+    public float BonusTextYPos;
+    public float FinishLineOffset;
     public GameObject Touch;
     public GameObject TextPrefab;
 
@@ -68,6 +68,9 @@ public class GameControl : MonoBehaviour
     public Text textCurrentscore;
     public Text textLevelCurrent;
     public Text textLevelNext;
+    public Text mainHighscore;
+    public Text mainScore;
+    public Text mainLevel;
 
     //Declare controllers
     public LevelControl LevelController;
@@ -150,7 +153,10 @@ public class GameControl : MonoBehaviour
 
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
         textLevelCurrent.text = LevelController.GetLevel().ToString();
-        textLevelNext.text = (LevelController.GetLevel() + 1).ToString();        
+        textLevelNext.text = (LevelController.GetLevel() + 1).ToString();
+        mainLevel.text = "level " + LevelController.GetLevel();
+        mainScore.text = PlayerPrefs.GetInt("score", 0).ToString();
+        mainHighscore.text = PlayerPrefs.GetInt("highscore", 0).ToString();
     }
 
     private void Update()
@@ -210,6 +216,10 @@ public class GameControl : MonoBehaviour
     {
         PlayerPrefs.SetInt("score", PlayerPrefs.GetInt("score", 0) + score);
         textCurrentscore.text = PlayerPrefs.GetInt("score", 0).ToString();
+        if (PlayerPrefs.GetInt("score", 0) > PlayerPrefs.GetInt("highscore", 0))
+        {
+            PlayerPrefs.SetInt("highscore", PlayerPrefs.GetInt("score",0));
+        }
     }
 
     //Call this method whenever you want to display score increment on screen.
