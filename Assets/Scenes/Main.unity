@@ -11019,7 +11019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 50
+  RingCountCap: 3
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:
