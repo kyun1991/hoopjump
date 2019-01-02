@@ -164,7 +164,7 @@ public class GameControl : MonoBehaviour
         {
             slider.value = 0;
         }
-        if (Ball.transform.position.x >= camRef)
+        if (Camera.main.transform.position.x >= camRef)
         {
             CameraScript.StopMoving();
         }
