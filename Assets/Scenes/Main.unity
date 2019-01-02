@@ -5065,11 +5065,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 3152897716336506164, guid: 273614d13a43844448ee5344e4990674,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5124,6 +5119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152897716336506164, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273614d13a43844448ee5344e4990674, type: 3}
@@ -8376,6 +8376,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420459950974748769, guid: 60096c7a49a9672478b35876cff4d87e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2420459950974748769, guid: 60096c7a49a9672478b35876cff4d87e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60096c7a49a9672478b35876cff4d87e, type: 3}

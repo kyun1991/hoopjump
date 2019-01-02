@@ -62,11 +62,11 @@ public class Ball : MonoBehaviour
         {
             var PerfectAngle = CurrentCircle.GetComponent<Circles>().GetPerfectAngle();
             var Boundary1 = PerfectAngle - PerfectBoundary;//First Boundary
+            var Boundary2 = PerfectAngle + PerfectBoundary; //Second Boundary
             if (Boundary1 <= -360)
             {
                 Boundary1 += 360; //Adjust angle it needs to be within 0 ~ -360
             }
-            var Boundary2 = PerfectAngle + PerfectBoundary; //Second Boundary
 
             if (angle <= Boundary2 && angle >= Boundary1)
             {
@@ -242,11 +242,13 @@ public class Ball : MonoBehaviour
     {
         //TODO: enter perfect zone logic
         within = true;
+        CurrentCircle.GetComponent<Circles>().Perfect.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void LeavePerfectZone()
     {
         //TODO: leave perfect zone logic
+        CurrentCircle.GetComponent<Circles>().Perfect.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>().color = Color.black;
         within = false;
     }
 

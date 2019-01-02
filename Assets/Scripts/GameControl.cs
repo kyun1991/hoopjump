@@ -99,6 +99,7 @@ public class GameControl : MonoBehaviour
         {
             ringList.Add(Instantiate(rings[Random.Range(0,rings.Length)],new Vector3(0,0,0),Quaternion.identity));
         }
+        ringList[ringList.Count - 1].GetComponent<Circles>().Perfect.SetActive(false);
         // arranges rings by x offset depending on ring size
         AddOffset();
 
