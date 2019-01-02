@@ -77,7 +77,7 @@ public class GameControl : MonoBehaviour
     private List<GameObject> ringList = new List<GameObject>();
     private GameObject spawnedDartBoard;
     private GameObject spawnedFinishLine;
-
+    private float camRef;
 
     private void Awake()
     {
@@ -116,6 +116,7 @@ public class GameControl : MonoBehaviour
         spawnedDartBoard = Instantiate(minigame, finishPos, Quaternion.identity);
         spawnedFinishLine.SetActive(false);
         spawnedDartBoard.SetActive(false);
+        camRef = finishPos.x;
 
 
         for (int i = 1; i < ringNumber; i++)
@@ -162,6 +163,10 @@ public class GameControl : MonoBehaviour
         else
         {
             slider.value = 0;
+        }
+        if (Ball.transform.position.x >= camRef)
+        {
+            CameraScript.StopMoving();
         }
     }
 

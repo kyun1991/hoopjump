@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public CameraScript camRef;
 
     //Declare public variables
     public GameObject ArrowGO;

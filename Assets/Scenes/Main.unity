@@ -5065,6 +5065,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 3152897716336506164, guid: 273614d13a43844448ee5344e4990674,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3152897716948079807, guid: 273614d13a43844448ee5344e4990674,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5119,11 +5124,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3152897716336506164, guid: 273614d13a43844448ee5344e4990674,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 273614d13a43844448ee5344e4990674, type: 3}
@@ -8557,9 +8557,9 @@ MonoBehaviour:
   panelMain: {fileID: 236807770}
   panelMainGO: {fileID: 1716044766}
   AnimCam: {fileID: 519420034}
-  pemask3: {fileID: 0}
-  pemask2: {fileID: 0}
-  pemask1: {fileID: 0}
+  pemask3: {fileID: 381295804399049224, guid: 95d2bde00f11c5041b533595a0509181, type: 3}
+  pemask2: {fileID: 1482528677143282437, guid: 78b3037ed6cfbbc49890c231cb649ff2, type: 3}
+  pemask1: {fileID: 7567775622967813794, guid: be8ebf72d2e59584b8eaf627d83f22b8, type: 3}
   ringNumber: 20
   deltaRings: 0
   rings:
@@ -11500,7 +11500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Level1RingCount: 10
   RingCountPerLevel: 2
-  RingCountCap: 30
+  RingCountCap: 3
   MovingRingsFrom: 5
 --- !u!4 &2092687019
 Transform:
@@ -11945,6 +11945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f1c711ea2fc044c83c747dbaa2088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camRef: {fileID: 519420033}
   ArrowGO: {fileID: 2118667082}
   Arrow: {fileID: 2118667083}
   ballForce: 500
