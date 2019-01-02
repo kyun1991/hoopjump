@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     public GameObject ArrowGO;
     public Transform Arrow;
     public float ballForce;
+    public float ballVel = 10.0f;
     public bool freeBall;
     public bool flying;
     public float PerfectBoundary = 10.0f; //Perfect boundary is +-n from the calculated perfect angle
@@ -18,6 +19,8 @@ public class Ball : MonoBehaviour
     public float SafeTextOffset = 1.0f;
     public Color SafeTextColor;
     public AudioSource PopSound;
+    public AudioSource PointSound;
+    public AudioSource ClearSound;
 
     //Declare Private variables
     private GameObject CurrentCircle;
@@ -185,6 +188,18 @@ public class Ball : MonoBehaviour
             Debug.Log("Bonus entered");
             Destroy(collision.gameObject);
             bonusCount += 1;
+            if(bonusCount == 1)
+            {
+                PointSound.Play();
+            }else if(bonusCount == 2)
+            {
+                PointSound.pitch += .2f;
+                PointSound.Play();
+            }
+            else
+            {
+                ClearSound.Play();
+            }
         }
 
         if(collision.tag == "gameend")
@@ -211,7 +226,8 @@ public class Ball : MonoBehaviour
             flying = true;
             transform.SetParent(null);
             rb.isKinematic = false;
-            rb.AddForce(newDir * ballForce);
+            //rb.AddForce(newDir * ballForce);
+            rb.velocity = newDir * ballVel;
             ArrowGO.SetActive(false);
         }
     }
@@ -246,7 +262,6 @@ public class Ball : MonoBehaviour
 
     public void JumpWithinPerfect()
     {
-  
         safe = true;
     }
 

@@ -41,6 +41,7 @@ public class GameControl : MonoBehaviour
     public float BonusTextYPos = 5.5f;
     public float FinishLineOffset = 3.0f;
     public GameObject Touch;
+    public GameObject TextPrefab;
 
     //Declare Offset Parameters
     public float smallsmall;
@@ -54,6 +55,7 @@ public class GameControl : MonoBehaviour
     public float largelarge;
     public Slider slider;
     public GameObject death;
+    public AudioSource DeathSound;
 
     //Canvas Properties
     public GameObject Canvas;
@@ -71,6 +73,7 @@ public class GameControl : MonoBehaviour
     //Declare Private Variables
     private List<GameObject> ringList = new List<GameObject>();
     private GameObject spawnedDartBoard;
+    private GameObject spawnedFinishLine;
 
 
     private void Awake()
@@ -104,9 +107,10 @@ public class GameControl : MonoBehaviour
         var finishPos = ringList[ringNumber - 1].transform.position + new Vector3(FinishLineOffset,0,0);
 
         //Instantiate a random minigame at the end
-        Instantiate(FinishLine, finishPos, Quaternion.identity);
+        spawnedFinishLine = Instantiate(FinishLine, finishPos, Quaternion.identity);
         var minigame = Minigames[Random.Range(0, Minigames.Length)];
         spawnedDartBoard = Instantiate(minigame, finishPos, Quaternion.identity);
+        spawnedFinishLine.SetActive(false);
         spawnedDartBoard.SetActive(false);
 
 
@@ -161,6 +165,7 @@ public class GameControl : MonoBehaviour
     {
         PlayerPrefs.SetInt("score", 0);
         Ball.SetActive(false);
+        DeathSound.Play();
         CameraScript.StopMoving();
         StartCoroutine(Delay(1f));
     }
@@ -297,6 +302,7 @@ public class GameControl : MonoBehaviour
     public void OnLastRing()
     {
         spawnedDartBoard.SetActive(true); //Need Animation Transition in
+        spawnedFinishLine.SetActive(true);
         CameraScript.IncreaseCameraSize();
 
         //Remove all other rings from gameplay
@@ -327,7 +333,7 @@ public class GameControl : MonoBehaviour
 
         if (bonusCount == 0)
         {
-
+            //?
         }
         else if(bonusCount == 1)
         {
@@ -344,5 +350,10 @@ public class GameControl : MonoBehaviour
             bonusPoints = GetLevel() * 20;
             newobj = Instantiate(Bonus3Text, spawnPos, Quaternion.identity);
         }
+
+        var textSpawnPos = new Vector3(xPos, yPos - 2, 0);
+        var textObj = Instantiate(TextPrefab, textSpawnPos, Quaternion.identity);
+        textObj.transform.GetChild(0).gameObject.GetComponent<TextMesh>().text = "+" + bonusPoints;
+        AddScore(bonusPoints);
     }
 }

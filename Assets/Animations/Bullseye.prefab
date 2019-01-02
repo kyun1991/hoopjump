@@ -50,7 +50,7 @@ MonoBehaviour:
   isUGUI: 0
   debugDraw: 0
   animationName: animtion0
-  _playTimes: 0
+  _playTimes: 1
   _timeScale: 1
   _sortingMode: 0
   _sortingLayerName: Default
