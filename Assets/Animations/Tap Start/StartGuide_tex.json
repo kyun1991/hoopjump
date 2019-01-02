@@ -1,0 +1,1 @@
+{"SubTexture":[{"width":145,"y":1,"height":148,"name":"hand","x":1},{"width":77,"y":1,"height":77,"name":"touch","x":148},{"y":151,"frameX":-2,"frameY":-9,"width":273,"frameWidth":277,"height":48,"name":"Taptostart","frameHeight":58,"x":1}],"width":276,"height":201,"name":"StartGuide","imagePath":"StartGuide_tex.png"}
