@@ -187,15 +187,15 @@ public class Ball : MonoBehaviour
             //Display choice words when the ball flies over more than two circles
         }
 
-        if(collision.tag.Contains("Bonus"))
+        if (collision.tag.Contains("Bonus"))
         {
-            Debug.Log("Bonus entered");
             Destroy(collision.gameObject);
             bonusCount += 1;
-            if(bonusCount == 1)
+            if (bonusCount == 1)
             {
                 PointSound.Play();
-            }else if(bonusCount == 2)
+            }
+            else if (bonusCount == 2)
             {
                 PointSound.pitch += .2f;
                 PointSound.Play();
@@ -204,7 +204,19 @@ public class Ball : MonoBehaviour
             {
                 ClearSound.Play();
             }
-        }
+            if (collision.tag.Contains("1"))
+            {
+                Instantiate(GameControl.instance.pemask1, collision.transform.position, Quaternion.identity);
+            }
+            if (collision.tag.Contains("2"))
+            {
+                Instantiate(GameControl.instance.pemask2, collision.transform.position, Quaternion.identity);
+            }
+            if (collision.tag.Contains("3"))
+            {
+                Instantiate(GameControl.instance.pemask3, collision.transform.position, Quaternion.identity);
+            }
+        }            
 
         if(collision.tag == "gameend")
         {
