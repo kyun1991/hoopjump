@@ -40,6 +40,7 @@ public class GameControl : MonoBehaviour
     public GameObject Bonus3Text;
     public float BonusTextYPos = 5.5f;
     public float FinishLineOffset = 3.0f;
+    public GameObject Touch;
 
     //Declare Offset Parameters
     public float smallsmall;
@@ -292,11 +293,27 @@ public class GameControl : MonoBehaviour
         return ringList[ringNumber-1];
     }
 
-    //Called from Ball class
+    //Called from Ball class when the ball lands on the last ring
     public void OnLastRing()
     {
         spawnedDartBoard.SetActive(true); //Need Animation Transition in
         CameraScript.IncreaseCameraSize();
+
+        //Remove all other rings from gameplay
+        for(int i = 0; i < ringList.Count - 1; i++)
+        {
+            Destroy(ringList[i]);
+        }
+
+        //Disable touch temporarily
+        StartCoroutine(DisableTouchTemporarily());
+    }
+
+    IEnumerator DisableTouchTemporarily()
+    {
+        Touch.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
+        Touch.SetActive(true);
     }
 
     public void RewardBonus(int bonusCount)

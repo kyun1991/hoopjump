@@ -10,6 +10,7 @@ public class CameraScript : MonoBehaviour {
     public float AdjustSpeed = 1.0f;
     public bool Stop;
     public float EndCamSize = 11.0f;
+    public float EndXOffset = 2.5f;
 
     //Declare private variables
     private Ball BallScript;
@@ -52,13 +53,15 @@ public class CameraScript : MonoBehaviour {
         }
     }
 
+    //Called at the end of the game by GameController
     public void IncreaseCameraSize()
     {
         EndReached = true;
+        XOffset = EndXOffset;
     }
 
 
-    //Camera stop moving
+    //Camera stop moving when invisible finishline is hits
     public void StopMoving()
     {
         Stop = true;
