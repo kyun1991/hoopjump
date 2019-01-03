@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 public class GameControl : MonoBehaviour
 {
@@ -96,6 +97,9 @@ public class GameControl : MonoBehaviour
 
     private void Start()
     {
+        // initialising GA sdk
+        GameAnalytics.Initialize();
+
         //Declare all level related parameters - How many rings? Are the rings moving?
         LevelController.SetLevel();
 
@@ -178,11 +182,12 @@ public class GameControl : MonoBehaviour
 
     public void Dead()
     {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "game", PlayerPrefs.GetInt("score", 0));
         PlayerPrefs.SetInt("score", 0);
         Ball.SetActive(false);
         DeathSound.Play();
         CameraScript.StopMoving();
-        StartCoroutine(Delay(1f));
+        StartCoroutine(Delay(1f));        
     }
 
     IEnumerator Delay(float time)
@@ -194,6 +199,7 @@ public class GameControl : MonoBehaviour
     // increments level by 1 when stage clear
     public void LevelClear()
     {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "game", PlayerPrefs.GetInt("score", 0));
         LevelController.LevelUp();
         StartCoroutine(Delay(2.5f));
     }
@@ -309,6 +315,7 @@ public class GameControl : MonoBehaviour
         AnimCam.SetTrigger("movecam");
         Destroy(AnimCam, 0.3f);
         Ball.GetComponent<Rigidbody2D>().isKinematic = false;
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "game");
     }
 
     //Called from Ball class
