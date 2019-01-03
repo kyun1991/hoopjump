@@ -25,21 +25,26 @@ MonoBehaviour:
   UserMessagesSubmitted: 0
   UserMessagesFailed: 0
   CustomArea: 
-  gameKey: []
-  secretKey: []
-  Build: []
-  SelectedPlatformStudio: []
-  SelectedPlatformGame: []
-  SelectedPlatformGameID: 
-  SelectedStudio: 
-  SelectedGame: 
+  gameKey:
+  - d9e9d417ffce1ade076b7d8f881507d7
+  secretKey:
+  - f345f70ab7d36e1abb6bef9daba64ded80deadce
+  Build:
+  - 0.1
+  SelectedPlatformStudio:
+  - Voodoo
+  SelectedPlatformGame:
+  - Hoop-Jump! - iOS (Cross Era)
+  SelectedPlatformGameID: cdfe0000
+  SelectedStudio: 01000000
+  SelectedGame: 06000000
   NewVersion: 
   Changes: 
-  SignUpOpen: 1
-  StudioName: 
-  GameName: 
-  EmailGA: 
-  IntroScreen: 1
+  SignUpOpen: 0
+  StudioName: CrossEra
+  GameName: HoopJump
+  EmailGA: crossera.0@gmail.com
+  IntroScreen: 0
   InfoLogEditor: 1
   InfoLogBuild: 1
   VerboseLogBuild: 0
@@ -51,13 +56,13 @@ MonoBehaviour:
   CustomDimensions03: []
   ResourceItemTypes: []
   ResourceCurrencies: []
-  LastCreatedGamePlatform: 0
-  Platforms: 
-  CurrentInspectorState: 0
+  LastCreatedGamePlatform: -1
+  Platforms: 08000000
+  CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}
-  Logo: {fileID: 0}
+  Logo: {fileID: 2800000, guid: 98df8f9c5678a4e5d964caa1244e8958, type: 3}
   UpdateIcon: {fileID: 0}
   InfoIcon: {fileID: 0}
   DeleteIcon: {fileID: 0}
@@ -79,7 +84,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 
+  PlatformFoldOut: 01
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0
